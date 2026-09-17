@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fr Kanyonza Memorial School - Hima | Cloud V5 Final</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');body{font-family:'Inter',sans-serif}</style>
+</head>
+<body class="bg-[#f5f5f5] min-h-screen">
+<header class="bg-black text-white sticky top-0 z-50 border-b-4 border-[#C1121F]"><div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"><div class="flex gap-3 items-center"><div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-black">FK</div><div><h1 class="font-black text-[13px]">FR KANYONZA MEMORIAL SCHOOL-HIMA</h1><p class="text-[#C1121F] text-[10px] font-bold">CLOUD V5 - 0 BUG FIXED + INSTANT RECEIPT</p></div></div><div class="flex gap-2"><button onclick="showView('parents')" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">PARENTS</button><button onclick="showView('adminLogin')" class="px-4 py-2 bg-white text-black rounded-full text-xs font-bold">ADMIN</button></div></div></header>
+
+<div class="max-w-4xl mx-auto px-3 py-2"><div class="bg-green-50 border-2 border-green-500 rounded-2xl p-3 text-xs text-center"><span id="cloudStatus" class="px-3 py-1 bg-green-600 text-white rounded-full font-bold">🟢 V5 Ready - No More 0 Bug</span> <span id="netStatus" class="px-3 py-1 bg-black text-white rounded-full font-bold ml-2">🌍 Online</span></div></div>
+
+<div id="view-parents" class="max-w-6xl mx-auto px-3 py-2">
+<div class="grid md:grid-cols-3 gap-4 mb-6">
+<div class="md:col-span-2 bg-white rounded-2xl shadow p-5 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-2">📋 SCHOOL CIRCULAR 2026 - OFFICIAL</h2><div class="text-sm space-y-1"><p><b>Hima Town Council, Kasese</b> | Motto: INSPIRING EXCELLENCE</p><ul class="list-disc ml-5 text-xs"><li>Reg 50k | Total 610k | Trip 50k | Facilitation S4/S6 50k</li><li>Uniform: Skirt/Trouser 30k, T-Shirt 20k, Sweater 30k, Shirt 25k, Sports 20k, Jumper 40k</li><li>Bank Code + Pay → Instant Receipt + Admin Confirm</li></ul></div></div>
+<div class="bg-black rounded-2xl shadow p-4 text-white"><h3 class="font-bold mb-3">📢 Live Updates</h3><div id="adsContainer"></div></div>
+</div>
+
+<div class="bg-white rounded-[20px] shadow-xl overflow-hidden">
+<div class="bg-gradient-to-r from-black to-[#C1121F] p-5 text-white"><h2 class="font-black text-xl">PARENTS REGISTRATION - V5 FINAL</h2><p class="text-sm opacity-80">Instant Receipt - No Delay - Admin Shows Local + Cloud</p></div>
+<form id="regForm" class="p-5 md:p-7 space-y-6">
+<div><h3 class="font-black text-[#C1121F] mb-3 border-b pb-2">STUDENT DETAILS</h3>
+<div class="grid md:grid-cols-3 gap-4">
+<div><label class="text-xs font-bold">Surnames *</label><input required name="surname" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
+<div><label class="text-xs font-bold">Given Names *</label><input required name="given" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
+<div><label class="text-xs font-bold">Other Names</label><input name="other" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
+<div><label class="text-xs font-bold">Date of Birth *</label><input required type="date" name="dob" class="w-full mt-1 p-3 border rounded-xl"></div>
+<div><label class="text-xs font-bold">Gender *</label><select required name="gender" class="w-full mt-1 p-3 border rounded-xl"><option value="">Select</option><option>Male</option><option>Female</option></select></div>
+<div><label class="text-xs font-bold">Class *</label><select required name="class" class="w-full mt-1 p-3 border rounded-xl font-bold"><option value="">Select</option><option>S.1</option><option>S.2</option><option>S.3</option><option>S.4</option><option>S.5</option><option>S.6</option></select></div>
+<div class="md:col-span-3"><label class="text-xs font-bold text-[#C1121F]">🏦 STUDENT BANK CODE *</label><input required name="bankCode" id="bankCodeInput" placeholder="FK-2026-001" class="w-full mt-1 p-3 border-2 border-[#C1121F]/30 rounded-xl bg-red-50/20 font-bold"></div>
+</div></div>
+<div><h3 class="font-black mb-3 border-b pb-2">PARENT/GUARDIAN DETAILS</h3>
+<div class="grid md:grid-cols-2 gap-4">
+<div><label class="text-xs font-bold">Parent Names *</label><input required name="parentName" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
+<div><label class="text-xs font-bold">Phone *</label><input required name="phone" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
+<div><label class="text-xs font-bold">Email</label><input type="email" name="email" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
+<div><label class="text-xs font-bold">Parent NIN</label><input name="nin" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
+</div></div>
+<div><h3 class="font-black mb-3 border-b pb-2">📷 DOCUMENTS</h3>
+<div class="grid md:grid-cols-3 gap-4">
+<div class="border-2 border-dashed rounded-xl p-3 text-center"><label class="text-[11px] font-black block mb-2">Birth Certificate *</label><div class="flex gap-1 justify-center mb-2"><label class="px-3 py-2 bg-black text-white rounded-full text-[10px] cursor-pointer">📂 BROWSE<input type="file" accept="image/*,application/pdf" class="hidden" onchange="previewFile(this,'prev1')"></label><label class="px-3 py-2 bg-[#C1121F] text-white rounded-full text-[10px] cursor-pointer">📷 CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewFile(this,'prev1')"></label></div><div id="prev1" class="text-[9px] text-green-600 font-bold"></div></div>
+<div class="border-2 border-dashed rounded-xl p-3 text-center"><label class="text-[11px] font-black block mb-2">P7/S4 Testimonial *</label><div class="flex gap-1 justify-center mb-2"><label class="px-3 py-2 bg-black text-white rounded-full text-[10px] cursor-pointer">📂 BROWSE<input type="file" accept="image/*,application/pdf" class="hidden" onchange="previewFile(this,'prev2')"></label><label class="px-3 py-2 bg-[#C1121F] text-white rounded-full text-[10px] cursor-pointer">📷 CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewFile(this,'prev2')"></label></div><div id="prev2" class="text-[9px] text-green-600 font-bold"></div></div>
+<div class="border-2 border-dashed rounded-xl p-3 text-center"><label class="text-[11px] font-black block mb-2">Parent NIN *</label><div class="flex gap-1 justify-center mb-2"><label class="px-3 py-2 bg-black text-white rounded-full text-[10px] cursor-pointer">📂 BROWSE<input type="file" accept="image/*,application/pdf" class="hidden" onchange="previewFile(this,'prev3')"></label><label class="px-3 py-2 bg-[#C1121F] text-white rounded-full text-[10px] cursor-pointer">📷 CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewFile(this,'prev3')"></label></div><div id="prev3" class="text-[9px] text-green-600 font-bold"></div></div>
+</div></div>
+<div class="bg-black text-white rounded-2xl p-5">
+<h3 class="font-black text-[#C1121F] mb-1">💳 PAY FEES</h3>
+<div class="grid md:grid-cols-2 gap-3 text-sm">
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="50000" data-name="Registration" class="feeChk" checked> Registration 50k</label>
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="610000" data-name="School Fees" class="feeChk"> School Fees 610k</label>
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="50000" data-name="Trip" class="feeChk"> Trip 50k</label>
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="50000" data-name="Facilitation" class="feeChk"> Facilitation 50k</label>
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="30000" data-name="Skirt/Trouser" class="feeChk"> Skirt 30k</label>
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="20000" data-name="T-Shirt" class="feeChk"> T-Shirt 20k</label>
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="30000" data-name="Sweater" class="feeChk"> Sweater 30k</label>
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="25000" data-name="Shirt" class="feeChk"> Shirt 25k</label>
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="20000" data-name="Sports" class="feeChk"> Sports 20k</label>
+<label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="40000" data-name="Jumper" class="feeChk"> Jumper 40k</label>
+</div>
+<div class="mt-4 flex justify-between bg-[#C1121F] rounded-xl p-3"><span class="font-bold">TOTAL:</span><span id="totalPay" class="font-black text-xl">50,000 UGX</span></div>
+<div class="mt-3 grid md:grid-cols-2 gap-3">
+<select id="payMethod" class="p-3 rounded-xl text-black text-sm"><option>MTN MoMo</option><option>Airtel Money</option><option>Centenary Bank</option><option>School Pay</option></select>
+<input id="momoNumber" placeholder="MoMo Number" class="p-3 rounded-xl text-black text-sm">
+</div>
+<div class="mt-2 text-[10px] bg-white/10 p-2 rounded-lg">Bank Code: <span id="bankCodePreview" class="font-bold text-[#C1121F]">Not entered</span></div>
+</div>
+<button type="submit" id="submitBtn" class="w-full bg-[#C1121F] text-white font-black py-4 rounded-2xl text-lg shadow">SUBMIT & GET RECEIPT INSTANT ⚡</button>
+</form>
+</div>
+</div>
+
+<div id="view-adminLogin" class="hidden max-w-md mx-auto px-4 py-20"><div class="bg-white rounded-[20px] shadow-xl p-8 border-t-4 border-black"><h2 class="font-black text-xl text-center mb-2">ADMIN LOGIN</h2><input id="adminPass" type="password" placeholder="mikeultra@333" class="w-full p-4 border rounded-xl bg-gray-50 mb-4"><button onclick="adminLogin()" class="w-full bg-black text-white font-bold py-4 rounded-xl">LOGIN</button><button onclick="showView('parents')" class="w-full mt-3 bg-gray-100 py-3 rounded-xl">Back</button></div></div>
+
+<div id="view-admin" class="hidden max-w-7xl mx-auto px-3 py-6">
+<div class="flex flex-wrap gap-2 mb-4 justify-between"><h2 class="font-black text-xl">ADMIN V5 <span id="liveCount" class="text-[#C1121F] text-sm">0</span></h2><div class="flex gap-2"><button onclick="exportExcel()" class="px-4 py-2 bg-green-600 text-white rounded-full text-xs font-bold">Excel</button><button onclick="printPDF()" class="px-4 py-2 bg-black text-white rounded-full text-xs font-bold">PDF</button><button onclick="showView('adManager')" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">+ Advert</button><button onclick="showView('parents')" class="px-4 py-2 bg-gray-200 rounded-full text-xs">Logout</button></div></div>
+<div class="grid grid-cols-3 md:grid-cols-6 gap-2 mb-4"><button onclick="filterClass('ALL')" class="bg-black text-white py-3 rounded-xl font-black text-sm">ALL<br><span id="countALL">0</span></button><button onclick="filterClass('S.1')" class="bg-white py-3 rounded-xl font-bold border">S.1<br><span id="countS1">0</span></button><button onclick="filterClass('S.2')" class="bg-white py-3 rounded-xl font-bold border">S.2<br><span id="countS2">0</span></button><button onclick="filterClass('S.3')" class="bg-white py-3 rounded-xl font-bold border">S.3<br><span id="countS3">0</span></button><button onclick="filterClass('S.4')" class="bg-white py-3 rounded-xl font-bold border">S.4<br><span id="countS4">0</span></button><button onclick="filterClass('S.5')" class="bg-white py-3 rounded-xl font-bold border">S.5<br><span id="countS5">0</span></button></div>
+<div class="flex gap-2 mb-4"><input id="searchInput" oninput="searchStudents()" placeholder="🔍 Search..." class="flex-1 p-3 border rounded-xl"><select id="classSearch" onchange="filterClass(this.value)" class="p-3 border rounded-xl"><option value="ALL">All</option><option>S.1</option><option>S.2</option><option>S.3</option><option>S.4</option><option>S.5</option><option>S.6</option></select></div>
+<div class="bg-white rounded-2xl shadow overflow-x-auto"><table class="w-full text-xs"><thead class="bg-black text-white"><tr><th class="p-3 text-left">Student</th><th class="p-3">Class</th><th class="p-3">Bank Code</th><th class="p-3">Parent</th><th class="p-3">Fees</th><th class="p-3">Status</th><th class="p-3">Receipt</th></tr></thead><tbody id="adminTbody"></tbody></table></div>
+</div>
+
+<div id="view-adManager" class="hidden max-w-2xl mx-auto px-4 py-10"><div class="bg-white rounded-[20px] shadow-xl p-6 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-4">ADVERT TOOL</h2><input id="adPass" type="password" placeholder="Enter advert password" class="w-full p-3 border rounded-xl mb-4"><input id="adTitle" placeholder="Title" class="w-full p-3 border rounded-xl mb-2"><textarea id="adDesc" placeholder="Description" class="w-full p-3 border rounded-xl mb-2"></textarea><select id="adType" class="w-full p-3 border rounded-xl mb-2"><option>photo</option><option>video</option><option>music</option><option>function</option></select><div class="border-2 border-dashed rounded-xl p-3 text-center mb-4"><label class="text-[11px] font-black block mb-2">Advert Media (optional)</label><div class="flex gap-2 justify-center"><label class="px-4 py-2 bg-black text-white rounded-full text-[11px] cursor-pointer">📂 BROWSE<input type="file" id="adFile" accept="image/*,video/*,audio/*" class="hidden" onchange="previewAdFile(this)"></label><label class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-[11px] cursor-pointer">📷 CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewAdFile(this)"></label></div><div id="adPrev" class="text-[10px] text-green-600 font-bold mt-2"></div></div><button onclick="addAdvert()" class="w-full bg-[#C1121F] text-white font-bold py-3 rounded-xl">UPLOAD</button><button onclick="showView('admin')" class="w-full mt-2 bg-gray-100 py-3 rounded-xl">Back</button></div></div>
+
+<div id="receiptModal" class="hidden fixed inset-0 bg-black/60 z-[100] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-md w-full p-6 relative max-h-[90vh] overflow-y-auto"><button onclick="closeReceipt()" class="absolute top-3 right-3 bg-gray-100 w-8 h-8 rounded-full">✕</button><div id="receiptContent"></div><div class="mt-4 grid grid-cols-2 gap-2"><button onclick="window.print()" class="bg-black text-white py-3 rounded-xl font-bold text-sm">🖨️ Print</button><button onclick="shareReceipt()" class="bg-green-600 text-white py-3 rounded-xl font-bold text-sm">📱 Share</button></div><div class="mt-2"><button onclick="closeReceipt()" class="w-full bg-[#C1121F] text-white py-3 rounded-xl font-bold text-sm">Done ✅</button></div><div id="saveStatus" class="mt-3 text-center text-[10px]"></div></div></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, addDoc, onSnapshot, enableNetwork, disableNetwork } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyCKKERfGvuXNuqPjzvdnLmALffUf6wSzXg",
+  authDomain: "fr-kanyoza-2026-new.firebaseapp.com",
+  projectId: "fr-kanyoza-2026-new",
+  storageBucket: "fr-kanyoza-2026-new.firebasestorage.app",
+  messagingSenderId: "956730370096",
+  appId: "1:956730370096:web:8d419718b3a7b71d5925f5"
+};
+const app = initializeApp(firebaseConfig);
+const db = initializeFirestore(app, { localCache: persistentLocalCache({tabManager: persistentMultipleTabManager()}) });
+
+let registrations=[];let advertsLocal=JSON.parse(localStorage.getItem('fk_adverts')||'[]');let lastReg=null;let adFileName="";
+window.previewFile=function(i,p){document.getElementById(p).innerText="✅ "+i.files[0].name;}
+window.previewAdFile=function(i){adFileName=i.files[0]?i.files[0].name:"";document.getElementById('adPrev').innerText="✅ "+adFileName;}
+
+function updateNet(){ const on=navigator.onLine; document.getElementById('netStatus').innerText=on?'🌍 Online':'📴 Offline - saving locally'; document.getElementById('netStatus').className='px-3 py-1 rounded-full font-bold ml-2 '+(on?'bg-black text-white':'bg-orange-600 text-white'); if(on){enableNetwork(db).catch(()=>{});} else {disableNetwork(db).catch(()=>{});} }
+window.addEventListener('online',updateNet); window.addEventListener('offline',updateNet); updateNet();
+
+window.showView=function(v){['parents','adminLogin','admin','adManager'].forEach(x=>document.getElementById('view-'+x).classList.add('hidden'));document.getElementById('view-'+v).classList.remove('hidden');if(v==='admin')loadAdmin();renderAds();}
+function calcTotal(){let t=0;document.querySelectorAll('.feeChk:checked').forEach(c=>t+=parseInt(c.value));document.getElementById('totalPay').innerText=t.toLocaleString()+' UGX';}document.querySelectorAll('.feeChk').forEach(c=>c.addEventListener('change',calcTotal));calcTotal();
+document.getElementById('bankCodeInput').addEventListener('input',e=>document.getElementById('bankCodePreview').innerText=e.target.value||'Not entered');
+
+async function syncPending(){
+  let pending=JSON.parse(localStorage.getItem('fk_pending')||'[]');
+  if(!pending.length ||!navigator.onLine) return;
+  const remaining=[];
+  for(const reg of pending){
+    try{ await addDoc(collection(db,'registrations'),reg); }
+    catch(e){ remaining.push(reg); }
+  }
+  localStorage.setItem('fk_pending', JSON.stringify(remaining));
+}
+setInterval(syncPending, 5000);
+
+document.getElementById('regForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const fd=new FormData(this);let total=0;const fees=[];document.querySelectorAll('.feeChk:checked').forEach(c=>{fees.push(c.dataset.name+' - '+c.value);total+=parseInt(c.value);});
+  const reg={id:'FK'+Date.now(),surname:fd.get('surname'),given:fd.get('given'),other:fd.get('other'),dob:fd.get('dob'),gender:fd.get('gender'),class:fd.get('class'),bankCode:fd.get('bankCode'),parentName:fd.get('parentName'),phone:fd.get('phone'),email:fd.get('email'),nin:fd.get('nin'),fees,total,payMethod:document.getElementById('payMethod').value,momo:document.getElementById('momoNumber').value,date:new Date().toLocaleString(),createdAt:Date.now(),synced:false};
+  lastReg=reg;
+  showReceipt(reg,true);
+  let backup=JSON.parse(localStorage.getItem('fk_backup')||'[]');backup.unshift(reg);localStorage.setItem('fk_backup',JSON.stringify(backup));
+  let pending=JSON.parse(localStorage.getItem('fk_pending')||'[]');pending.unshift(reg);localStorage.setItem('fk_pending',JSON.stringify(pending));
+  document.getElementById('saveStatus').innerHTML='<span class="text-orange-600 font-bold">⏳ Saving '+(navigator.onLine?'to cloud...':'offline locally...')+'</span>';
+  if(navigator.onLine){
+    try{await addDoc(collection(db,'registrations'),reg); reg.synced=true; document.getElementById('saveStatus').innerHTML='<span class="text-green-600 font-bold">✅ Saved to Cloud Worldwide! Code: '+reg.bankCode+'</span>'; localStorage.setItem('fk_pending', JSON.stringify(JSON.parse(localStorage.getItem('fk_pending')||'[]').filter(x=>x.id!==reg.id))); }
+    catch(err){document.getElementById('saveStatus').innerHTML='<span class="text-orange-600 font-bold">📴 Offline saved locally. Will auto-sync worldwide when online.</span>';}
+  } else {
+    document.getElementById('saveStatus').innerHTML='<span class="text-orange-600 font-bold">📴 Offline - saved on this phone. Will auto-sync worldwide when online.</span>';
+  }
+  this.reset();calcTotal();document.getElementById('bankCodePreview').innerText='Not entered';
+});
+
+window.showReceipt=function(reg,isSaving){
+  const badge=isSaving?'<div class="text-[10px] bg-orange-100 text-orange-700 px-2 py-1 rounded-full inline-block">⏳ Saving...</div>':'<div class="text-[10px] bg-green-100 text-green-700 px-2 py-1 rounded-full inline-block">✅ Confirmed</div>';
+  document.getElementById('receiptContent').innerHTML=`<div class="text-center border-b-2 border-black pb-3 mb-3"><div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mx-auto font-black mb-2">FK</div><div class="font-black text-sm">FR KANYONZA MEMORIAL SCHOOL</div>${badge}<div class="mt-2 font-bold bg-black text-white px-3 py-1 rounded-full inline-block text-[10px]">OFFICIAL RECEIPT</div></div><div class="text-xs space-y-2"><p><b>Receipt:</b> ${reg.id}</p><p><b>Student:</b> ${reg.surname} ${reg.given} - ${reg.class}</p><p><b style="color:#C1121F">🏦 Bank Code:</b> <span class="font-black">${reg.bankCode}</span></p><p><b>Parent:</b> ${reg.parentName} - ${reg.phone}</p><p><b>Total:</b> <span class="font-black text-green-600">${reg.total.toLocaleString()} UGX</span></p><p><b>Method:</b> ${reg.payMethod} ${reg.momo}</p><p><b>Date:</b> ${reg.date}</p></div><div class="mt-2 bg-gray-50 p-2 rounded text-[9px]">Fees: ${reg.fees.join(', ')}</div><div class="mt-2 text-center text-[9px]"><b>Dev: Amanya Mike 0763821339</b></div>`;
+  document.getElementById('receiptModal').classList.remove('hidden');
+}
+window.shareReceipt=function(){if(lastReg&&navigator.share)navigator.share({title:'Receipt',text:`${lastReg.id} ${lastReg.surname} ${lastReg.bankCode} ${lastReg.total} UGX`});}
+window.closeReceipt=function(){document.getElementById('receiptModal').classList.add('hidden');}
+window.adminLogin=function(){if(document.getElementById('adminPass').value==='mikeultra@333')showView('admin');else alert('Wrong');}
+
+async function loadAdmin(){
+  let backup=JSON.parse(localStorage.getItem('fk_backup')||'[]');
+  if(backup.length>0){ registrations=backup; document.getElementById('liveCount').innerText=backup.length+' LOCAL'; renderAdmin(); }
+  syncPending();
+  try{
+    onSnapshot(collection(db,'registrations'), (snap)=>{
+      const cloud=[];snap.forEach(d=>cloud.push(d.data()));
+      if(cloud.length>0){
+        let merged=[...cloud];
+        backup.forEach(b=>{if(!merged.find(m=>m.id===b.id))merged.push(b);});
+        registrations=merged.sort((a,b)=>b.createdAt-a.createdAt);
+        document.getElementById('liveCount').innerText=cloud.length+' CLOUD WORLDWIDE + '+(merged.length-cloud.length)+' LOCAL = '+merged.length+' TOTAL';
+        renderAdmin();
+      } else if(backup.length===0){ document.getElementById('liveCount').innerText='0 - No data yet'; }
+      let pend=JSON.parse(localStorage.getItem('fk_pending')||'[]');
+      if(pend.length && cloud.length){ const ids=new Set(cloud.map(c=>c.id)); pend=pend.filter(p=>!ids.has(p.id)); localStorage.setItem('fk_pending',JSON.stringify(pend)); }
+    }, (err)=>{
+      document.getElementById('liveCount').innerText='Rules Blocked - Showing LOCAL '+backup.length;
+    });
+    onSnapshot(collection(db,'adverts'), (snap)=>{
+      const cloudAds=[];snap.forEach(d=>cloudAds.push(d.data()));
+      if(cloudAds.length){ advertsLocal=cloudAds.sort((a,b)=>b.createdAt-a.createdAt); localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal)); renderAds(); }
+    });
+  }catch(e){alert(e.message);}
+}
+
+window.renderAdmin=function(f='ALL',s=''){let data=registrations;if(f!=='ALL')data=data.filter(r=>r.class===f);if(s){const l=s.toLowerCase();data=data.filter(r=>(r.surname+r.given+r.parentName+r.phone+(r.bankCode||'')).toLowerCase().includes(l));}document.getElementById('adminTbody').innerHTML=data.map(r=>`<tr class="border-b"><td class="p-3"><b>${r.surname} ${r.given}</b><br><span class="text-[8px]">${r.id}</span></td><td class="p-3 font-black text-center">${r.class}</td><td class="p-3 font-bold text-[#C1121F]">${r.bankCode}</td><td class="p-3">${r.parentName}<br><span class="text-[#C1121F] font-bold">${r.phone}</span></td><td class="p-3"><span class="bg-green-100 px-2 py-1 rounded-full text-[10px]">${r.total.toLocaleString()} UGX</span></td><td class="p-3"><span class="bg-green-500 text-white px-2 py-1 rounded-full text-[8px]">Cloud/Local</span><br><span class="text-[8px]">${r.date}</span></td><td class="p-3"><button onclick="showReceiptById('${r.id}')" class="px-3 py-1 bg-black text-white rounded-full text-[10px]">Receipt</button><br><button onclick="confirmReceipt('${r.id}')" class="mt-1 px-2 py-1 bg-green-600 text-white rounded-full text-[8px]">Confirm</button></td></tr>`).join('')||'<tr><td colspan=7 class="p-10 text-center">No registrations yet. Submit one in Parents.</td></tr>';updateCounts();}
+window.filterClass=function(c){document.getElementById('classSearch').value=c;renderAdmin(c,document.getElementById('searchInput').value);}
+window.searchStudents=function(){renderAdmin(document.getElementById('classSearch').value,document.getElementById('searchInput').value);}
+window.showReceiptById=function(id){const r=registrations.find(x=>x.id===id);if(r){lastReg=r;showReceipt(r,false);}}
+window.confirmReceipt=function(id){const r=registrations.find(x=>x.id===id);if(r)alert('✅ Confirmed: '+r.surname+' '+r.given+'\nBank: '+r.bankCode+'\nCall Parent: '+r.phone);}
+window.updateCounts=function(){document.getElementById('countALL').innerText=registrations.length;['S.1','S.2','S.3','S.4','S.5','S.6'].forEach(c=>{const el=document.getElementById('count'+c.replace('.',''));if(el)el.innerText=registrations.filter(r=>r.class===c).length;});}
+window.renderAds=function(){const ads=advertsLocal.length?advertsLocal:[{title:"Welcome 2026",desc:"Registration Open - Fr Kanyonza Hima",type:"function"}];document.getElementById('adsContainer').innerHTML=ads.map(a=>`<div class="bg-white/10 rounded-xl p-3 border border-white/10 mb-2"><div class="font-bold text-sm">${a.title}</div><div class="text-xs opacity-80">${a.desc}</div>${a.fileName?`<div class="text-[10px] text-green-300 mt-1">📎 ${a.fileName}</div>`:''}</div>`).join('');}
+window.addAdvert=async function(){if(document.getElementById('adPass').value!=='mikeultra@33')return alert('Wrong advert password');const adv={title:document.getElementById('adTitle').value,desc:document.getElementById('adDesc').value,type:document.getElementById('adType').value,fileName:adFileName,date:new Date().toLocaleString(),createdAt:Date.now()};advertsLocal.unshift(adv);localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal));try{await addDoc(collection(db,'adverts'),adv);alert('✅ Advert LIVE worldwide!');}catch(e){alert('📴 Saved offline locally, will sync when online: '+e.message);}showView('admin');}
+window.exportExcel=function(){if(!registrations.length)return alert('No data');let csv='ID,Surname,Given,Class,BankCode,Parent,Phone,Total,Date\n';registrations.forEach(r=>{csv+=`${r.id},${r.surname},${r.given},${r.class},${r.bankCode},${r.parentName},${r.phone},${r.total},${r.date}\n`;});const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Kanyonza_V5.csv';a.click();}
+window.printPDF=function(){const {jsPDF}=window.jspdf;const doc=new jsPDF();doc.text('Fr Kanyonza V5',10,10);let y=20;registrations.forEach((r,i)=>{doc.text(`${i+1}. ${r.surname} ${r.given} | ${r.class} | ${r.bankCode} | ${r.phone} | ${r.total}`,10,y);y+=7;});doc.save('V5.pdf');}
+renderAds(); syncPending();
+</script>
+<footer class="mt-10 bg-black text-white p-6 text-center text-[10px]"><p class="font-bold">Developer: Amanya Mike | 0763821339</p><p>V5 Final - 0 Bug Fixed - Instant Receipt</p></footer>
+</body>
+</html>

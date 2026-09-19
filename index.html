@@ -121,22 +121,29 @@ async function syncPending(){
 }
 setInterval(syncPending, 5000);
 
+let isSubmitting = false;
 document.getElementById('regForm').addEventListener('submit', async function(e){
   e.preventDefault();
+  if(isSubmitting) return;
+  isSubmitting = true;
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerText = 'SAVING... WAIT';
   const fd=new FormData(this);let total=0;const fees=[];document.querySelectorAll('.feeChk:checked').forEach(c=>{fees.push(c.dataset.name+' - '+c.value);total+=parseInt(c.value);});
   const reg={id:'FK'+Date.now(),surname:fd.get('surname'),given:fd.get('given'),other:fd.get('other'),dob:fd.get('dob'),gender:fd.get('gender'),class:fd.get('class'),bankCode:fd.get('bankCode'),parentName:fd.get('parentName'),phone:fd.get('phone'),email:fd.get('email'),nin:fd.get('nin'),fees,total,payMethod:document.getElementById('payMethod').value,momo:document.getElementById('momoNumber').value,date:new Date().toLocaleString(),createdAt:Date.now(),synced:false};
   lastReg=reg;
   showReceipt(reg,true);
   let backup=JSON.parse(localStorage.getItem('fk_backup')||'[]');backup.unshift(reg);localStorage.setItem('fk_backup',JSON.stringify(backup));
-  let pending=JSON.parse(localStorage.getItem('fk_pending')||'[]');pending.unshift(reg);localStorage.setItem('fk_pending',JSON.stringify(pending));
   document.getElementById('saveStatus').innerHTML='<span class="text-orange-600 font-bold">⏳ Saving '+(navigator.onLine?'to cloud...':'offline locally...')+'</span>';
   if(navigator.onLine){
-    try{await addDoc(collection(db,'registrations'),reg); reg.synced=true; document.getElementById('saveStatus').innerHTML='<span class="text-green-600 font-bold">✅ Saved to Cloud Worldwide! Code: '+reg.bankCode+'</span>'; localStorage.setItem('fk_pending', JSON.stringify(JSON.parse(localStorage.getItem('fk_pending')||'[]').filter(x=>x.id!==reg.id))); }
-    catch(err){document.getElementById('saveStatus').innerHTML='<span class="text-orange-600 font-bold">📴 Offline saved locally. Will auto-sync worldwide when online.</span>';}
+    try{await addDoc(collection(db,'registrations'),reg); reg.synced=true; document.getElementById('saveStatus').innerHTML='<span class="text-green-600 font-bold">✅ Saved to Cloud Worldwide! Code: '+reg.bankCode+'</span>'; }
+    catch(err){let pending=JSON.parse(localStorage.getItem('fk_pending')||'[]');pending.unshift(reg);localStorage.setItem('fk_pending',JSON.stringify(pending));document.getElementById('saveStatus').innerHTML='<span class="text-orange-600 font-bold">📴 Offline saved locally. Will auto-sync.</span>';}
   } else {
-    document.getElementById('saveStatus').innerHTML='<span class="text-orange-600 font-bold">📴 Offline - saved on this phone. Will auto-sync worldwide when online.</span>';
+    let pending=JSON.parse(localStorage.getItem('fk_pending')||'[]');pending.unshift(reg);localStorage.setItem('fk_pending',JSON.stringify(pending));
+    document.getElementById('saveStatus').innerHTML='<span class="text-orange-600 font-bold">📴 Offline - saved on this phone.</span>';
   }
   this.reset();calcTotal();document.getElementById('bankCodePreview').innerText='Not entered';
+  setTimeout(()=>{ isSubmitting=false; btn.disabled=false; btn.innerText='SUBMIT & GET RECEIPT INSTANT ⚡'; }, 2000);
 });
 
 window.showReceipt=function(reg,isSaving){
@@ -188,4 +195,4 @@ renderAds(); syncPending();
 </script>
 <footer class="mt-10 bg-black text-white p-6 text-center text-[10px]"><p class="font-bold">Developer: Amanya Mike | 0763821339</p><p>V5 Final - 0 Bug Fixed - Instant Receipt</p></footer>
 </body>
-</html>
+                                            </html>

@@ -20,7 +20,7 @@ input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(
 <header class="bg-black text-white sticky top-0 z-50 border-b-4 border-[#C1121F]"><div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"><div class="flex gap-3 items-center"><div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-black">FK</div><div><h1 class="font-black text-[13px]">FR KANYONZA MEMORIAL SCHOOL-HIMA</h1><p class="text-[#C1121F] text-[10px] font-bold">CLOUD V5 FINAL - 24H TIMER</p></div></div><div class="flex gap-2"><button onclick="showView('parents')" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">PARENTS</button><button onclick="showView('adminLogin')" class="px-4 py-2 bg-white text-black rounded-full text-xs font-bold">ADMIN</button></div></div></header>
 <div id="toast" class="fixed top-20 right-4 z-[200] hidden"><div class="bg-black text-white px-6 py-4 rounded-2xl shadow-2xl border-l-4 border-green-500"><p id="toastMsg" class="font-bold text-sm">✅ Success</p></div></div>
 <div id="view-parents" class="max-w-6xl mx-auto px-3 py-2">
-<div class="grid md:grid-cols-3 gap-4 mb-6"><div class="md:col-span-2 bg-white rounded-2xl shadow p-5 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-2">📋 SCHOOL CIRCULAR 2026</h2><p class="text-sm"><b>Hima Town Council, Kasese</b> | INSPIRING EXCELLENCE</p><ul class="list-disc ml-5 text-xs"><li>Reg 50k | Total 610k | Trip 50k | Facilitation 50k</li><li>Uniform: Skirt 30k, T-Shirt 20k, Sweater 30k, Shirt 25k, Sports 20k, Jumper 40k</li></ul></div><div class="bg-black rounded-2xl shadow p-4 text-white"><h3 class="font-bold mb-3">📢 Live Updates (24h)</h3><div id="adsContainer"></div></div></div>
+<div class="grid md:grid-cols-3 gap-4 mb-6"><div class="md:col-span-2 bg-white rounded-2xl shadow p-5 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-2">📋 SCHOOL CIRCULAR 2027</h2><p class="text-sm"><b>Hima Town Council, Kasese</b> | INSPIRING EXCELLENCE</p><ul class="list-disc ml-5 text-xs"><li>Reg 50k | Total 610k | Trip 50k | Facilitation 50k</li><li>Uniform: Skirt 30k, T-Shirt 20k, Sweater 30k, Shirt 25k, Sports 20k, Jumper 40k</li></ul></div><div class="bg-black rounded-2xl shadow p-4 text-white"><h3 class="font-bold mb-3">📢 Live Updates (24h)</h3><div id="adsContainer"></div></div></div>
 <div class="bg-white rounded-[20px] shadow-xl overflow-hidden"><div class="bg-gradient-to-r from-black to-[#C1121F] p-5 text-white"><h2 class="font-black text-xl">PARENTS REGISTRATION</h2></div>
 <form id="regForm" class="p-5 space-y-6">
 <div><h3 class="font-black text-[#C1121F] mb-3 border-b pb-2">STUDENT DETAILS</h3><div class="grid md:grid-cols-3 gap-4">
@@ -30,7 +30,7 @@ input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(
 <div><label class="text-xs font-bold">Date of Birth *</label><input required type="date" name="dob" class="w-full mt-1 p-3 border rounded-xl"></div>
 <div><label class="text-xs font-bold">Gender *</label><select required name="gender" class="w-full mt-1 p-3 border rounded-xl"><option value="">Select</option><option>Male</option><option>Female</option></select></div>
 <div><label class="text-xs font-bold">Class *</label><select required name="class" class="w-full mt-1 p-3 border rounded-xl"><option value="">Select</option><option>S.1</option><option>S.2</option><option>S.3</option><option>S.4</option><option>S.5</option><option>S.6</option></select></div>
-<div class="md:col-span-3"><label class="text-xs font-bold text-[#C1121F]">🏦 STUDENT BANK CODE *</label><input required name="bankCode" id="bankCodeInput" placeholder="FK-2026-001" class="w-full mt-1 p-3 border-2 border-[#C1121F]/30 rounded-xl bg-red-50/20 font-bold"></div>
+<div class="md:col-span-3"><label class="text-xs font-bold text-[#C1121F]">🏦 STUDENT BANK CODE *</label><input required name="bankCode" id="bankCodeInput" placeholder="FK-2027-001" class="w-full mt-1 p-3 border-2 border-[#C1121F]/30 rounded-xl bg-red-50/20 font-bold"></div>
 </div></div>
 <div><h3 class="font-black mb-3 border-b pb-2">PARENT/GUARDIAN DETAILS</h3><div class="grid md:grid-cols-2 gap-4">
 <div><label class="text-xs font-bold">Parent Names *</label><input required name="parentName" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
@@ -74,9 +74,17 @@ input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(
 <div id="receiptModal" class="hidden fixed inset-0 bg-black/60 z-[100] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-md w-full p-6 relative"><button onclick="closeReceipt()" class="absolute top-3 right-3 bg-gray-100 w-8 h-8 rounded-full">✕</button><div id="receiptContent"></div><button onclick="closeReceipt()" class="w-full mt-4 bg-[#C1121F] text-white py-3 rounded-xl font-bold">Done ✅</button><div id="saveStatus" class="mt-2 text-center text-xs"></div></div></div>
 <div id="studentModal" class="hidden fixed inset-0 bg-black/70 z-[110] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-auto"><div class="flex justify-between mb-4"><h2 class="font-black">STUDENT FULL DETAILS</h2><button onclick="document.getElementById('studentModal').classList.add('hidden')" class="bg-gray-100 w-8 h-8 rounded-full font-bold">X</button></div><div id="studentDetails" class="text-xs space-y-2"></div></div></div>
 <script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";import {initializeFirestore,persistentLocalCache,persistentMultipleTabManager,collection,addDoc,onSnapshot} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-const firebaseConfig={apiKey:"AIzaSyCKKERfGvuXNuqPjzvdnLmALffUf6wSzXg",authDomain:"fr-kanyoza-2026-new.firebaseapp.com",projectId:"fr-kanyoza-2026-new",storageBucket:"fr-kanyoza-2026-new.firebasestorage.app",messagingSenderId:"956730370096",appId:"1:956730370096:web:8d419718b3a7b71d5925f5"};
-const app=initializeApp(firebaseConfig);const db=initializeFirestore(app,{localCache:persistentLocalCache({tabManager:persistentMultipleTabManager()})});
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";import {initializeFirestore,persistentLocalCache,persistentMultipleTabManager,collection,addDoc,onSnapshot} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";import {getStorage,ref,uploadString,getDownloadURL} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyDhkpS7hG9SJa5QGqXC2xs-wf9G2p1X3Y8",
+  authDomain: "fr-kanyoza-2026-new.firebaseapp.com",
+  projectId: "fr-kanyoza-2026-new",
+  storageBucket: "fr-kanyoza-2026-new.firebasestorage.app",
+  messagingSenderId: "1054111043868",
+  appId: "1:1054111043868:web:5283f3228f3b7f816c6ad9",
+  measurementId: "G-B3D7H8540J"
+};
+const app=initializeApp(firebaseConfig);const db=initializeFirestore(app,{localCache:persistentLocalCache({tabManager:persistentMultipleTabManager()})});const storage=getStorage(app);
 let registrations=[];let advertsLocal=JSON.parse(localStorage.getItem('fk_adverts')||'[]');let adFileDataUrl="";let lastReg=null;let certFiles={};let isAfterBackup=false;
 function showToast(m){const t=document.getElementById('toast');document.getElementById('toastMsg').innerText=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),4500);}
 window.previewFile=function(input,prevId,key){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{certFiles[key]=e.target.result;document.getElementById(prevId).innerText="✅ "+f.name;};r.readAsDataURL(f);};
@@ -88,11 +96,22 @@ window.adminLogin=function(){if(document.getElementById('adminPass').value==='mi
 window.renderAds=function(){
   const now=Date.now(); const limit=24*60*60*1000;
   const freshAds=advertsLocal.filter(a=>!a.createdAt || (now - a.createdAt) < limit);
-  const ads=freshAds.length?freshAds:[{title:"Welcome 2026",desc:"Registration Open",type:"function"}];
+  const ads=freshAds.length?freshAds:[{title:"Welcome 2027",desc:"Registration Open 2027",type:"function"}];
   document.getElementById('adsContainer').innerHTML=ads.map(a=>{
-    let m="";let time="";if(a.createdAt){const hrs=Math.floor((now-a.createdAt)/(1000*60*60)); time=' <span class="text-[8px] bg-white/20 px-2 py-1 rounded-full">⏰ '+hrs+'h ago (auto clear 24h)</span>';}
-    if(a.fileUrl){if(a.type==="photo")m='<img src="'+a.fileUrl+'" style="width:100%;border-radius:10px;margin-top:6px">';if(a.type==="video")m='<video src="'+a.fileUrl+'" controls style="width:100%;border-radius:10px;margin-top:6px"></video>';if(a.type==="music")m='<audio src="'+a.fileUrl+'" controls style="width:100%"></audio>';}
-    return '<div class="bg-white/10 rounded-xl p-3 mb-2"><div class="font-bold text-sm">'+a.title+time+'</div><div class="text-xs opacity-80">'+(a.desc||"")+'</div>'+m+'</div>';
+    let m=""; let time="";
+    if(a.createdAt){const hrs=Math.floor((now-a.createdAt)/(1000*60*60)); time=' <span class="text-[8px] bg-white/20 px-2 py-1 rounded-full">⏰ '+hrs+'h ago</span>';}
+    if(a.fileUrl){
+      // AUTO DETECT - interchange oba photo oba video
+      const isVideo = a.type==="video" || a.fileUrl.includes('video') || a.fileUrl.endsWith('.mp4');
+      if(isVideo){
+        m='<video src="'+a.fileUrl+'" autoplay muted loop playsinline controls style="width:100%;border-radius:10px;margin-top:6px;max-height:200px;object-fit:cover"></video>';
+      } else if(a.type==="music"){
+        m='<audio src="'+a.fileUrl+'" controls style="width:100%"></audio>';
+      } else {
+        m='<img src="'+a.fileUrl+'" style="width:100%;border-radius:10px;margin-top:6px;max-height:200px;object-fit:cover">';
+      }
+    }
+    return '<div class="bg-white/10 rounded-xl p-3 mb-2 border border-white/10"><div class="font-bold text-sm">'+a.title+time+'</div><div class="text-xs opacity-80">'+(a.desc||"")+'</div>'+m+'</div>';
   }).join('');
 };
 
@@ -100,21 +119,40 @@ window.renderAds=function(){
 window.addAdvert=async function(){
   const t=document.getElementById('adTitle').value.trim();
   if(!t &&!adFileDataUrl) return showToast('❌ Add Title or File');
-  const btn=document.getElementById('adBtn'); btn.innerText='UPLOADING...'; btn.disabled=true;
-  const adv={title:t||"Advert",desc:document.getElementById('adDesc').value,type:document.getElementById('adType').value,fileUrl:adFileDataUrl,date:new Date().toLocaleString(),createdAt:Date.now()};
-  advertsLocal.unshift(adv);localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal));
-  try{await addDoc(collection(db,'adverts'),adv);showToast('✅ Advert Upload Success - LIVE!');document.getElementById('adPrev').innerHTML='<div style="background:#dcfce7;color:green;padding:10px;border-radius:12px;font-weight:900;text-align:center;">✅ Advert Upload Success - LIVE!<br><span style="font-size:10px;">Now visible to parents, auto clears after 24h</span></div>';}catch(e){showToast('✅ Advert Upload Success - Saved Locally');document.getElementById('adPrev').innerHTML='<div style="background:#dcfce7;color:green;padding:10px;border-radius:12px;font-weight:900;">✅ Advert Upload Success - Saved Locally</div>';}
+  const btn=document.getElementById('adBtn'); btn.innerText='UPLOADING TO CLOUD...'; btn.disabled=true;
+  let finalUrl=adFileDataUrl;
+  try{
+    if(adFileDataUrl && adFileDataUrl.startsWith('data:')){
+      const storageRef=ref(storage,'adverts/'+Date.now()+'_advert');
+      await uploadString(storageRef, adFileDataUrl, 'data_url');
+      finalUrl=await getDownloadURL(storageRef);
+    }
+    const adv={title:t||"Advert",desc:document.getElementById('adDesc').value,type:document.getElementById('adType').value,fileUrl:finalUrl,date:new Date().toLocaleString(),createdAt:Date.now()};
+    await addDoc(collection(db,'adverts'),adv);
+    advertsLocal.unshift(adv);localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal));
+    showToast('✅ Advert Upload Success - LIVE!');document.getElementById('adPrev').innerHTML='<div style="background:#dcfce7;color:green;padding:10px;border-radius:12px;font-weight:900;text-align:center;">✅ Advert Upload Success - LIVE TO ALL PARENTS!<br><span style="font-size:10px;">Now visible to parents, auto clears after 24h</span></div>';
+  }catch(e){showToast('❌ '+e.message);document.getElementById('adPrev').innerHTML='<div style="background:#fca5a5;color:#991b1b;padding:10px;border-radius:12px;font-weight:900;">❌ Failed: '+e.message+'<br><span style="font-size:10px;">Enable Storage in Firebase Console</span></div>';btn.innerText='UPLOAD ADVERT';btn.disabled=false;return;}
   adFileDataUrl="";document.getElementById('adTitle').value="";document.getElementById('adDesc').value="";renderAds();btn.innerText='UPLOAD ADVERT';btn.disabled=false;
   setTimeout(()=>{document.getElementById('adPrev').innerHTML=''; showView('admin');},2000);
 };
 window.addQuickAdvert=async function(){
   const t=document.getElementById('adTitleQuick').value.trim();const f=document.getElementById('adFileQuick').files[0];
   if(!t &&!f) return showToast('❌ Add Title or File');
-  const btn=document.getElementById('adQuickBtn'); btn.innerText='UPLOADING...'; btn.disabled=true;
+  const btn=document.getElementById('adQuickBtn'); btn.innerText='UPLOADING TO CLOUD...'; btn.disabled=true;
   let url="";if(f){const r=new FileReader();url=await new Promise(res=>{r.onload=e=>res(e.target.result);r.readAsDataURL(f);});}
-  const adv={title:t||"Live Update",desc:"",type:"photo",fileUrl:url,date:new Date().toLocaleString(),createdAt:Date.now()};
-  advertsLocal.unshift(adv);localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal));
-  try{await addDoc(collection(db,'adverts'),adv);showToast('✅ Advert Upload Success - LIVE!');document.getElementById('adQuickPrev').innerHTML='<div style="background:white;color:green;padding:8px 12px;border-radius:12px;font-weight:900;display:inline-block;">✅ Advert Upload Success - LIVE!</div>';}catch(e){showToast('✅ Advert Upload Success - Saved Locally');document.getElementById('adQuickPrev').innerHTML='<div style="background:white;color:green;padding:8px;border-radius:12px;font-weight:900;display:inline-block;">✅ Saved Locally</div>';}
+  let finalUrl=url;
+  try{
+    if(url && url.startsWith('data:')){
+      const storageRef=ref(storage,'adverts/quick_'+Date.now());
+      await uploadString(storageRef, url, 'data_url');
+      finalUrl=await getDownloadURL(storageRef);
+    }
+        const fileType = f? (f.type.includes('video')? 'video' : f.type.includes('audio')? 'music' : 'photo') : 'photo';
+    const adv={title:t||"Live Update",desc:"",type:fileType,fileUrl:finalUrl,date:new Date().toLocaleString(),createdAt:Date.now()};
+    await addDoc(collection(db,'adverts'),adv);
+    advertsLocal.unshift(adv);localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal));
+    showToast('✅ Advert Upload Success - LIVE!');document.getElementById('adQuickPrev').innerHTML='<div style="background:white;color:green;padding:8px 12px;border-radius:12px;font-weight:900;display:inline-block;">✅ LIVE TO ALL PARENTS!</div>';
+  }catch(e){showToast('❌ '+e.message);document.getElementById('adQuickPrev').innerHTML='<div style="background:#fca5a5;color:#991b1b;padding:8px;border-radius:12px;font-weight:900;display:inline-block;">❌ '+e.message+'</div>';btn.innerText='UPLOAD LIVE';btn.disabled=false;return;}
   document.getElementById('adTitleQuick').value="";document.getElementById('adFileQuick').value="";renderAds();btn.innerText='UPLOAD LIVE';btn.disabled=false;
   setTimeout(()=>{document.getElementById('adQuickPrev').innerHTML='';},4000);
 };

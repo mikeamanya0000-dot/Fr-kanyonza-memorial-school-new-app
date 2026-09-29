@@ -248,7 +248,7 @@ window.renderAdmin = function(){
 // NEW: DELETE ONE REGISTRATION - FINAL WORKING CLOUD DELETE
 window.deleteOneRegistration = async function(id, bankCode){
   if(!confirm(`Delete ${bankCode} ? This cannot be undone!`)) return;
-  showToast('🗑️ Deleting '+bankCode+'...');
+  showToast(' Deleting '+bankCode+'...');
   try{
     let backup = JSON.parse(localStorage.getItem('fk_backup')||'[]');
     backup = backup.filter(r=>r.id !== id);
@@ -259,22 +259,39 @@ window.deleteOneRegistration = async function(id, bankCode){
     const q = query(collection(db, "registrations"), where("id", "==", id));
     const snap = await getDocs(q);
     snap.forEach(async d => { await deleteDoc(d.ref); });
-    showToast('✅ Fully deleted from Cloud!');
-  }catch(e){ showToast('✅ Deleted locally - '+e.message); }
+    showToast(' Fully deleted from Cloud!');
+  }catch(e){ showToast(' Deleted locally - '+e.message); }
 };
-window.saveCurrentView=async function(){
-  if(!currentViewedId) return showToast('No student selected');
-  const r=registrations.find(x=>x.id===currentViewedId);
-  if(!r) return;
-  try{
-    await addDoc(collection(db,'browsedFiles'),{
-      type: 'manual_save_view',
-      studentId: r.id,
-      bankCode: r.bankCode,
-      studentName: r.surname+' '+r.given,
-      viewedAt: Date.now(),
-      date: new Date().toLocaleString()
-    });
+window.viewStudent = function(id){
+  const r = registrations.find(x=>x.id===id);
+  if(!r) return showToast(' Not found');
+  currentViewedId = id;
+  document.getElementById('studentDetails').innerHTML = `
+    <div class="space-y-2">
+      <div class="bg-black text-white p-4 rounded-xl text-center">
+        <p class="font-black text-lg">${r.surname} ${r.given} ${r.other||''}</p>
+        <p class="text-[#C1121F] font-black">${r.bankCode} - ${r.class}</p>
+        <p class="text-[10px]">${r.dob} | ${r.gender}</p>
+      </div>
+      <div class="grid grid-cols-2 gap-2 text-[12px]">
+        <div class="bg-gray-50 p-2 rounded">Parent: <b>${r.parentName}</b></div>
+        <div class="bg-gray-50 p-2 rounded">Phone: <b>${r.phone}</b></div>
+        <div class="bg-gray-50 p-2 rounded">Email: ${r.email||'N/A'}</div>
+        <div class="bg-gray-50 p-2 rounded">NIN: ${r.nin||'N/A'}</div>
+        <div class="bg-gray-50 p-2 rounded col-span-2">Total: <b class="text-[#C1121F]">${r.total.toLocaleString()} UGX</b></div>
+        <div class="bg-gray-50 p-2 rounded col-span-2">Fees: ${r.requirements}</div>
+        <div class="bg-gray-50 p-2 rounded col-span-2">Pay: ${r.payMethod} - ${r.momo}</div>
+        <div class="bg-gray-50 p-2 rounded col-span-2">Date: ${r.date}</div>
+      </div>
+      <div class="grid grid-cols-3 gap-2 mt-2">
+        ${r.cert1?'<img src="'+r.cert1+'" class="w-full h-20 object-cover rounded">':''}
+        ${r.cert2?'<img src="'+r.cert2+'" class="w-full h-20 object-cover rounded">':''}
+        ${r.cert3?'<img src="'+r.cert3+'" class="w-full h-20 object-cover rounded">':''}
+      </div>
+    </div>
+  `;
+  document.getElementById('studentModal').classList.remove('hidden');
+};
     showToast('âœ… Saved to browsedFiles Cloud');
   }catch(e){ showToast('âŒ '+e.message); }
 };

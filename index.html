@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Fr Kanyonza V5 Final</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Fr Kanyonza V5 Final - FIXED</title>
 <style>
 *{box-sizing:border-box;font-family:system-ui,sans-serif}body{margin:0;background:#f5f5f5;min-height:100vh}
 .bg-\[\#f5f5f5\]{background:#f5f5f5}.bg-black{background:#000}.bg-white{background:#fff}.bg-gray-50{background:#f9fafb}.bg-gray-100{background:#f3f4f6}.bg-white\/10{background:rgba(255,255,255,.1)}.bg-black\/60{background:rgba(0,0,0,.6)}.bg-black\/70{background:rgba(0,0,0,.7)}.bg-red-50\/20{background:rgba(254,242,242,.2)}.bg-\[\#C1121F\]{background:#C1121F}.bg-green-600{background:#16a34a}.bg-gray-200{background:#e5e7eb}
@@ -17,10 +17,28 @@ input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head><body class="bg-[#f5f5f5] min-h-screen">
-<header class="bg-black text-white sticky top-0 z-50 border-b-4 border-[#C1121F]"><div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"><div class="flex gap-3 items-center"><div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-black">FK</div><div><h1 class="font-black text-[13px]">FR KANYONZA MEMORIAL SCHOOL-HIMA</h1><p class="text-[#C1121F] text-[10px] font-bold">CLOUD V5 FINAL - 24H TIMER</p></div></div><div class="flex gap-2"><button onclick="showView('parents')" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">PARENTS</button><button onclick="showView('adminLogin')" class="px-4 py-2 bg-white text-black rounded-full text-xs font-bold">ADMIN</button></div></div></header>
-<div id="toast" class="fixed top-20 right-4 z-[200] hidden"><div class="bg-black text-white px-6 py-4 rounded-2xl shadow-2xl border-l-4 border-green-500"><p id="toastMsg" class="font-bold text-sm">✅ Success</p></div></div>
+<header class="bg-black text-white sticky top-0 z-50 border-b-4 border-[#C1121F]"><div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"><div class="flex gap-3 items-center"><div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-black">FK</div><div><h1 class="font-black text-[13px]">FR KANYONZA MEMORIAL SCHOOL-HIMA</h1><p class="text-[#C1121F] text-[10px] font-bold">CLOUD V5 FINAL - 24H TIMER - FIXED</p></div></div><div class="flex gap-2"><button onclick="showView('parents')" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">PARENTS</button><button onclick="showView('adminLogin')" class="px-4 py-2 bg-white text-black rounded-full text-xs font-bold">ADMIN</button></div></div></header>
+<div id="toast" class="fixed top-20 right-4 z-[200] hidden"><div class="bg-black text-white px-6 py-4 rounded-2xl shadow-2xl border-l-4 border-green-500"><p id="toastMsg" class="font-bold text-sm">âœ… Success</p></div></div>
 <div id="view-parents" class="max-w-6xl mx-auto px-3 py-2">
-<div class="grid md:grid-cols-3 gap-4 mb-6"><div class="md:col-span-2 bg-white rounded-2xl shadow p-5 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-2">📋 SCHOOL CIRCULAR 2027</h2><p class="text-sm"><b>Hima Town Council, Kasese</b> | INSPIRING EXCELLENCE</p><ul class="list-disc ml-5 text-xs"><li>Reg 50k | Total 610k | Trip 50k | Facilitation 50k</li><li>Uniform: Skirt 30k, T-Shirt 20k, Sweater 30k, Shirt 25k, Sports 20k, Jumper 40k</li></ul></div><div class="bg-black rounded-2xl shadow p-4 text-white"><h3 class="font-bold mb-3">📢 Live Updates (24h)</h3><div id="adsContainer"></div></div></div>
+<div class="grid md:grid-cols-3 gap-4 mb-6"><div class="md:col-span-2 bg-white rounded-2xl shadow p-5 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-2">ðŸ“‹ SCHOOL CIRCULAR 2027</h2><p class="text-sm"><b>Hima Town Council, Kasese</b> | INSPIRING EXCELLENCE</p><ul class="list-disc ml-5 text-xs"><li>Reg 50k | Total 610k | Trip 50k | Facilitation 50k</li><li>Uniform: Skirt 30k, T-Shirt 20k, Sweater 30k, Shirt 25k, Sports 20k, Jumper 40k</li></ul></div><div class="bg-black rounded-2xl shadow p-4 text-white"><h3 class="font-bold mb-3">ðŸ“¢ Live Updates (24h)</h3><div id="adsContainer"></div></div></div>
+<div style="background: linear-gradient(90deg, #FFCC00 0%, #FF0000 100%);" class="rounded-2xl p-[2px] mb-3 shadow">
+  <div class="bg-white rounded-[14px] p-4">
+    <p class="font-black text-[11px] mb-3 tracking-wide">Our Dear Parent, Pay On:</p>
+    <div class="flex flex-wrap gap-2">
+      <!-- MTN YELLOW SIDE -->
+      <div class="flex items-center gap-2 px-4 py-2 rounded-full text-black font-bold text-sm" style="background:#FFCC00;">
+        <div class="w-6 h-6 bg-black rounded-full flex items-center justify-center text-[#FFCC00] font-black text-[8px]">MTN</div>
+        0761 782 848
+      </div>
+      <!-- AIRTEL RED SIDE -->
+      <div class="flex items-center gap-2 px-4 py-2 rounded-full text-white font-bold text-sm" style="background:#FF0000;">
+        <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center text-[#FF0000] font-black text-[7px]">airtel</div>
+        0755 544 141
+      </div>
+    </div>
+    <p class="font-black text-[11px] mt-3">Names: JEROME TWIMUKYE</p>
+  </div>
+</div>
 <div class="bg-white rounded-[20px] shadow-xl overflow-hidden"><div class="bg-gradient-to-r from-black to-[#C1121F] p-5 text-white"><h2 class="font-black text-xl">PARENTS REGISTRATION</h2></div>
 <form id="regForm" class="p-5 space-y-6">
 <div><h3 class="font-black text-[#C1121F] mb-3 border-b pb-2">STUDENT DETAILS</h3><div class="grid md:grid-cols-3 gap-4">
@@ -30,7 +48,7 @@ input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(
 <div><label class="text-xs font-bold">Date of Birth *</label><input required type="date" name="dob" class="w-full mt-1 p-3 border rounded-xl"></div>
 <div><label class="text-xs font-bold">Gender *</label><select required name="gender" class="w-full mt-1 p-3 border rounded-xl"><option value="">Select</option><option>Male</option><option>Female</option></select></div>
 <div><label class="text-xs font-bold">Class *</label><select required name="class" class="w-full mt-1 p-3 border rounded-xl"><option value="">Select</option><option>S.1</option><option>S.2</option><option>S.3</option><option>S.4</option><option>S.5</option><option>S.6</option></select></div>
-<div class="md:col-span-3"><label class="text-xs font-bold text-[#C1121F]">🏦 STUDENT BANK CODE *</label><input required name="bankCode" id="bankCodeInput" placeholder="FK-2027-001" class="w-full mt-1 p-3 border-2 border-[#C1121F]/30 rounded-xl bg-red-50/20 font-bold"></div>
+<div class="md:col-span-3"><label class="text-xs font-bold text-[#C1121F]">ðŸ¦ STUDENT BANK CODE *</label><input required name="bankCode" id="bankCodeInput" placeholder="FK-2027-001" class="w-full mt-1 p-3 border-2 border-[#C1121F]/30 rounded-xl bg-red-50/20 font-bold"></div>
 </div></div>
 <div><h3 class="font-black mb-3 border-b pb-2">PARENT/GUARDIAN DETAILS</h3><div class="grid md:grid-cols-2 gap-4">
 <div><label class="text-xs font-bold">Parent Names *</label><input required name="parentName" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
@@ -38,11 +56,11 @@ input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(
 <div><label class="text-xs font-bold">Email</label><input type="email" name="email" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
 <div><label class="text-xs font-bold">Parent NIN</label><input name="nin" class="w-full mt-1 p-3 border rounded-xl bg-gray-50"></div>
 </div></div>
-<div><h3 class="font-black mb-3 border-b pb-2">📷 DOCUMENTS</h3><div class="grid md:grid-cols-3 gap-4">
-<div class="border-2 border-dashed rounded-xl p-3 text-center"><label class="text-[11px] font-black block mb-2">Birth Certificate *</label><div class="flex gap-1 justify-center mb-2"><label class="px-3 py-2 bg-black text-white rounded-full text-[10px] cursor-pointer">📂 BROWSE<input type="file" accept="image/*,application/pdf" class="hidden" onchange="previewFile(this,'prev1','cert1')"></label><label class="px-3 py-2 bg-[#C1121F] text-white rounded-full text-[10px] cursor-pointer">📷 CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewFile(this,'prev1','cert1')"></label></div><div id="prev1" class="text-[9px] text-green-600 font-bold"></div></div>
-<div class="border-2 border-dashed rounded-xl p-3 text-center"><label class="text-[11px] font-black block mb-2">P7/S4 Testimonial *</label><div class="flex gap-1 justify-center mb-2"><label class="px-3 py-2 bg-black text-white rounded-full text-[10px] cursor-pointer">📂 BROWSE<input type="file" accept="image/*,application/pdf" class="hidden" onchange="previewFile(this,'prev2','cert2')"></label><label class="px-3 py-2 bg-[#C1121F] text-white rounded-full text-[10px] cursor-pointer">📷 CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewFile(this,'prev2','cert2')"></label></div><div id="prev2" class="text-[9px] text-green-600 font-bold"></div></div>
-<div class="border-2 border-dashed rounded-xl p-3 text-center"><label class="text-[11px] font-black block mb-2">Parent NIN *</label><div class="flex gap-1 justify-center mb-2"><label class="px-3 py-2 bg-black text-white rounded-full text-[10px] cursor-pointer">📂 BROWSE<input type="file" accept="image/*,application/pdf" class="hidden" onchange="previewFile(this,'prev3','cert3')"></label><label class="px-3 py-2 bg-[#C1121F] text-white rounded-full text-[10px] cursor-pointer">📷 CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewFile(this,'prev3','cert3')"></label></div><div id="prev3" class="text-[9px] text-green-600 font-bold"></div></div>
-</div></div><div class="bg-black text-white rounded-2xl p-5"><h3 class="font-black text-[#C1121F] mb-1">💳 PAY FEES - Requirements Paid</h3><div class="grid md:grid-cols-2 gap-3 text-sm">
+<div><h3 class="font-black mb-3 border-b pb-2">ðŸ“· DOCUMENTS</h3><div class="grid md:grid-cols-3 gap-4">
+<div class="border-2 border-dashed rounded-xl p-3 text-center"><label class="text-[11px] font-black block mb-2">Birth Certificate *</label><div class="flex gap-1 justify-center mb-2"><label class="px-3 py-2 bg-black text-white rounded-full text-[10px] cursor-pointer">ðŸ“‚ BROWSE<input type="file" accept="image/*,application/pdf" class="hidden" onchange="previewFile(this,'prev1','cert1')"></label><label class="px-3 py-2 bg-[#C1121F] text-white rounded-full text-[10px] cursor-pointer">ðŸ“· CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewFile(this,'prev1','cert1')"></label></div><div id="prev1" class="text-[9px] text-green-600 font-bold"></div></div>
+<div class="border-2 border-dashed rounded-xl p-3 text-center"><label class="text-[11px] font-black block mb-2">P7/S4 Testimonial *</label><div class="flex gap-1 justify-center mb-2"><label class="px-3 py-2 bg-black text-white rounded-full text-[10px] cursor-pointer">ðŸ“‚ BROWSE<input type="file" accept="image/*,application/pdf" class="hidden" onchange="previewFile(this,'prev2','cert2')"></label><label class="px-3 py-2 bg-[#C1121F] text-white rounded-full text-[10px] cursor-pointer">ðŸ“· CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewFile(this,'prev2','cert2')"></label></div><div id="prev2" class="text-[9px] text-green-600 font-bold"></div></div>
+<div class="border-2 border-dashed rounded-xl p-3 text-center"><label class="text-[11px] font-black block mb-2">Parent NIN *</label><div class="flex gap-1 justify-center mb-2"><label class="px-3 py-2 bg-black text-white rounded-full text-[10px] cursor-pointer">ðŸ“‚ BROWSE<input type="file" accept="image/*,application/pdf" class="hidden" onchange="previewFile(this,'prev3','cert3')"></label><label class="px-3 py-2 bg-[#C1121F] text-white rounded-full text-[10px] cursor-pointer">ðŸ“· CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewFile(this,'prev3','cert3')"></label></div><div id="prev3" class="text-[9px] text-green-600 font-bold"></div></div>
+</div></div><div class="bg-black text-white rounded-2xl p-5"><h3 class="font-black text-[#C1121F] mb-1">ðŸ’³ PAY FEES - Requirements Paid</h3><div class="grid md:grid-cols-2 gap-3 text-sm">
 <label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="50000" data-name="Registration" class="feeChk" checked> Registration 50k</label>
 <label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="610000" data-name="School Fees" class="feeChk"> School Fees 610k</label>
 <label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="50000" data-name="Trip" class="feeChk"> Trip 50k</label>
@@ -54,27 +72,29 @@ input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(
 <label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="20000" data-name="Sports" class="feeChk"> Sports 20k</label>
 <label class="flex gap-2 bg-white/10 p-3 rounded-xl"><input type="checkbox" value="40000" data-name="Jumper" class="feeChk"> Jumper 40k</label>
 </div><div class="mt-4 flex justify-between bg-[#C1121F] rounded-xl p-3"><span class="font-bold">TOTAL:</span><span id="totalPay" class="font-black text-xl">50,000 UGX</span></div><div class="mt-3 grid md:grid-cols-2 gap-3"><select id="payMethod" class="p-3 rounded-xl text-black text-sm"><option>MTN MoMo</option><option>Airtel Money</option><option>Centenary Bank</option><option>School Pay</option></select><input id="momoNumber" placeholder="MoMo Number" class="p-3 rounded-xl text-black text-sm"></div></div>
-<button type="submit" id="submitBtn" class="w-full bg-[#C1121F] text-white font-black py-4 rounded-2xl text-lg">SUBMIT & GET RECEIPT INSTANT ⚡</button>
+<button type="submit" id="submitBtn" class="w-full bg-[#C1121F] text-white font-black py-4 rounded-2xl text-lg">SUBMIT & GET RECEIPT INSTANT âš¡</button>
 </form></div>
-<div class="bg-white rounded-[20px] shadow-xl p-5 mt-4 border-l-4 border-black"><h3 class="font-black">💬 Send Comment to School (After Registration)</h3><input id="cName" placeholder="Your name" class="w-full p-3 border rounded-xl mb-2 mt-2"><textarea id="cMsg" placeholder="Write comment..." class="w-full p-3 border rounded-xl mb-2"></textarea><button id="commentBtn" onclick="sendComment()" class="w-full bg-black text-white py-3 rounded-xl font-bold">Send Comment</button><div id="cStatus" class="text-xs text-center mt-2 font-bold"></div></div>
+<div class="bg-white rounded-[20px] shadow-xl p-5 mt-4 border-l-4 border-black"><h3 class="font-black">ðŸ’¬ Send Comment to School (After Registration)</h3><input id="cName" placeholder="Your name" class="w-full p-3 border rounded-xl mb-2 mt-2"><textarea id="cMsg" placeholder="Write comment..." class="w-full p-3 border rounded-xl mb-2"></textarea><button id="commentBtn" onclick="sendComment()" class="w-full bg-black text-white py-3 rounded-xl font-bold">Send Comment</button><div id="cStatus" class="text-xs text-center mt-2 font-bold"></div></div>
 </div>
 <div id="view-adminLogin" class="hidden max-w-md mx-auto px-4 py-20"><div class="bg-white rounded-[20px] shadow-xl p-8 border-t-4 border-black"><h2 class="font-black text-xl text-center mb-2">ADMIN LOGIN</h2><input id="adminPass" type="password" placeholder="mikeultra@333" class="w-full p-4 border rounded-xl bg-gray-50 mb-4"><button onclick="adminLogin()" class="w-full bg-black text-white font-bold py-4 rounded-xl">LOGIN</button><button onclick="showView('parents')" class="w-full mt-3 bg-gray-100 py-3 rounded-xl">Back</button></div></div>
 <div id="view-admin" class="hidden max-w-7xl mx-auto px-3 py-6">
 <div class="flex flex-wrap gap-2 mb-4 justify-between"><h2 class="font-black text-xl">ADMIN V5 <span id="liveCount" class="text-[#C1121F] text-sm"></span></h2><div class="flex gap-2 flex-wrap">
 <select id="sortClass" onchange="filterClass()" class="p-2 border rounded-full text-xs font-bold"><option value="ALL">All Classes</option><option>S.1</option><option>S.2</option><option>S.3</option><option>S.4</option><option>S.5</option><option>S.6</option></select>
-<button onclick="downloadFullPDF()" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">📄 PDF Backup (Bursar)</button>
+<button onclick="downloadFullPDF()" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">ðŸ“„ PDF Backup (Bursar)</button>
+<button onclick="saveAllViewClicks()" class="px-4 py-2 bg-blue-600 text-white rounded-full text-xs font-bold">ðŸ’¾ SAVE View Log</button>
 <button onclick="exportExcel()" class="px-4 py-2 bg-green-600 text-white rounded-full text-xs font-bold">Excel</button>
 <button onclick="showView('adManager')" class="px-4 py-2 bg-black text-white rounded-full text-xs font-bold">+ Advert</button>
 <button onclick="showView('parents')" class="px-4 py-2 bg-gray-200 rounded-full text-xs">Logout</button></div></div>
-<div class="bg-white rounded-2xl shadow p-4 mb-4 border-l-4 border-[#C1121F]"><h3 class="font-black text-xs mb-2">📸 Upload Advert (Admin Only) - Auto clears after 24h</h3><div class="flex gap-2"><input id="adTitleQuick" placeholder="Title" class="p-2 border rounded-xl text-xs flex-1"><input id="adFileQuick" type="file" accept="image/*,video/*" class="text-xs flex-1"><button id="adQuickBtn" onclick="addQuickAdvert()" class="px-4 py-2 bg-black text-white rounded-full text-xs font-bold">UPLOAD LIVE</button></div><div id="adQuickPrev" class="text-[10px] font-bold mt-2 text-center"></div></div>
-<div class="bg-black rounded-2xl p-4 mb-4 text-white"><button onclick="document.getElementById('commentsBox').classList.toggle('hidden')" class="w-full flex justify-between font-black text-sm">💬 Parents Comments - 24h Auto Clear (<span id="commentCount">0</span>) ▼</button><div id="commentsBox" class="hidden mt-3"><div id="commentsList" class="text-xs space-y-2 max-h-[300px] overflow-auto"><p class="text-gray-400">No comments yet</p></div></div></div>
+<div class="bg-white rounded-2xl shadow p-4 mb-4 border-l-4 border-[#C1121F]"><h3 class="font-black text-xs mb-2">ðŸ“¸ Upload Advert (Admin Only) - Auto clears after 24h</h3><div class="flex gap-2"><input id="adTitleQuick" placeholder="Title" class="p-2 border rounded-xl text-xs flex-1"><input id="adFileQuick" type="file" accept="image/*,video/*" class="text-xs flex-1"><button id="adQuickBtn" onclick="addQuickAdvert()" class="px-4 py-2 bg-black text-white rounded-full text-xs font-bold">UPLOAD LIVE</button></div><div id="adQuickPrev" class="text-[10px] font-bold mt-2 text-center"></div></div>
+<div class="bg-black rounded-2xl p-4 mb-4 text-white"><button onclick="document.getElementById('commentsBox').classList.toggle('hidden')" class="w-full flex justify-between font-black text-sm">ðŸ’¬ Parents Comments - 24h Auto Clear (<span id="commentCount">0</span>) â–¼</button><div id="commentsBox" class="hidden mt-3"><div id="commentsList" class="text-xs space-y-2 max-h-[300px] overflow-auto"><p class="text-gray-400">No comments yet</p></div></div></div>
 <div class="bg-white rounded-2xl shadow overflow-x-auto"><table class="w-full text-xs"><thead class="bg-black text-white"><tr><th class="p-3 text-left">Student</th><th class="p-3">Class</th><th class="p-3">Bank Code</th><th class="p-3">Parent</th><th class="p-3">Fees / Requirements</th><th class="p-3">Action</th></tr></thead><tbody id="adminTbody"></tbody></table></div>
 </div>
-<div id="view-adManager" class="hidden max-w-2xl mx-auto px-4 py-10"><div class="bg-white rounded-[20px] shadow-xl p-6 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-4">ADVERT TOOL - Admin</h2><input id="adTitle" placeholder="Title" class="w-full p-3 border rounded-xl mb-2"><textarea id="adDesc" placeholder="Description" class="w-full p-3 border rounded-xl mb-2"></textarea><select id="adType" class="w-full p-3 border rounded-xl mb-2"><option value="photo">photo</option><option value="video">video</option><option value="music">music</option><option value="function">function</option></select><div class="border-2 border-dashed rounded-xl p-3 text-center mb-4"><div class="flex gap-2 justify-center"><label class="px-4 py-2 bg-black text-white rounded-full text-[11px] cursor-pointer">📂 BROWSE<input type="file" accept="image/*,video/*,audio/*" class="hidden" onchange="previewAdFile(this)"></label><label class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-[11px] cursor-pointer">📷 CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewAdFile(this)"></label></div><div id="adPrev" class="text-[10px] font-bold mt-2 text-center"></div></div><button id="adBtn" onclick="addAdvert()" class="w-full bg-[#C1121F] text-white font-bold py-3 rounded-xl">UPLOAD ADVERT</button><button onclick="showView('admin')" class="w-full mt-2 bg-gray-100 py-3 rounded-xl">Back</button></div></div>
-<div id="receiptModal" class="hidden fixed inset-0 bg-black/60 z-[100] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-md w-full p-6 relative"><button onclick="closeReceipt()" class="absolute top-3 right-3 bg-gray-100 w-8 h-8 rounded-full">✕</button><div id="receiptContent"></div><button onclick="closeReceipt()" class="w-full mt-4 bg-[#C1121F] text-white py-3 rounded-xl font-bold">Done ✅</button><div id="saveStatus" class="mt-2 text-center text-xs"></div></div></div>
-<div id="studentModal" class="hidden fixed inset-0 bg-black/70 z-[110] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-auto"><div class="flex justify-between mb-4"><h2 class="font-black">STUDENT FULL DETAILS</h2><button onclick="document.getElementById('studentModal').classList.add('hidden')" class="bg-gray-100 w-8 h-8 rounded-full font-bold">X</button></div><div id="studentDetails" class="text-xs space-y-2"></div></div></div>
+<div id="view-adManager" class="hidden max-w-2xl mx-auto px-4 py-10"><div class="bg-white rounded-[20px] shadow-xl p-6 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-4">ADVERT TOOL - Admin</h2><input id="adTitle" placeholder="Title" class="w-full p-3 border rounded-xl mb-2"><textarea id="adDesc" placeholder="Description" class="w-full p-3 border rounded-xl mb-2"></textarea><select id="adType" class="w-full p-3 border rounded-xl mb-2"><option value="photo">photo</option><option value="video">video</option><option value="music">music</option><option value="function">function</option></select><div class="border-2 border-dashed rounded-xl p-3 text-center mb-4"><div class="flex gap-2 justify-center"><label class="px-4 py-2 bg-black text-white rounded-full text-[11px] cursor-pointer">ðŸ“‚ BROWSE<input type="file" accept="image/*,video/*,audio/*" class="hidden" onchange="previewAdFile(this)"></label><label class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-[11px] cursor-pointer">ðŸ“· CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewAdFile(this)"></label></div><div id="adPrev" class="text-[10px] font-bold mt-2 text-center"></div></div><button id="adBtn" onclick="addAdvert()" class="w-full bg-[#C1121F] text-white font-bold py-3 rounded-xl">UPLOAD ADVERT</button><button onclick="showView('admin')" class="w-full mt-2 bg-gray-100 py-3 rounded-xl">Back</button></div></div>
+<div id="receiptModal" class="hidden fixed inset-0 bg-black/60 z-[100] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-md w-full p-6 relative"><button onclick="closeReceipt()" class="absolute top-3 right-3 bg-gray-100 w-8 h-8 rounded-full">âœ•</button><div id="receiptContent"></div><button onclick="closeReceipt()" class="w-full mt-4 bg-[#C1121F] text-white py-3 rounded-xl font-bold">Done âœ…</button><div id="saveStatus" class="mt-2 text-center text-xs"></div></div></div>
+<div id="studentModal" class="hidden fixed inset-0 bg-black/70 z-[110] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-auto"><div class="flex justify-between mb-4"><h2 class="font-black">STUDENT FULL DETAILS</h2><button onclick="document.getElementById('studentModal').classList.add('hidden')" class="bg-gray-100 w-8 h-8 rounded-full font-bold">X</button></div><div id="studentDetails" class="text-xs space-y-2"></div><div class="mt-4 flex gap-2"><button onclick="saveCurrentView()" class="flex-1 bg-blue-600 text-white py-3 rounded-xl font-bold">ðŸ’¾ SAVE View Click</button><button onclick="downloadCurrentPDF()" class="flex-1 bg-[#C1121F] text-white py-3 rounded-xl font-bold">ðŸ“„ Save PDF Now</button></div></div></div>
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";import {initializeFirestore,persistentLocalCache,persistentMultipleTabManager,collection,addDoc,onSnapshot} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";import {getStorage,ref,uploadString,getDownloadURL} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+// âœ… YOUR EXACT FIREBASE CONFIG - KEPT SAME
 const firebaseConfig = {
   apiKey: "AIzaSyDhkpS7hG9SJa5QGqXC2xs-wf9G2p1X3Y8",
   authDomain: "fr-kanyoza-2026-new.firebaseapp.com",
@@ -85,40 +105,33 @@ const firebaseConfig = {
   measurementId: "G-B3D7H8540J"
 };
 const app=initializeApp(firebaseConfig);const db=initializeFirestore(app,{localCache:persistentLocalCache({tabManager:persistentMultipleTabManager()})});const storage=getStorage(app);
-let registrations=[];let advertsLocal=JSON.parse(localStorage.getItem('fk_adverts')||'[]');let adFileDataUrl="";let lastReg=null;let certFiles={};let isAfterBackup=false;
+let registrations=[];let advertsLocal=JSON.parse(localStorage.getItem('fk_adverts')||'[]');let adFileDataUrl="";let lastReg=null;let certFiles={};let isAfterBackup=false;let currentViewedId=null;
 function showToast(m){const t=document.getElementById('toast');document.getElementById('toastMsg').innerText=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),4500);}
-window.previewFile=function(input,prevId,key){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{certFiles[key]=e.target.result;document.getElementById(prevId).innerText="✅ "+f.name;};r.readAsDataURL(f);};
-window.previewAdFile=function(i){const f=i.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{adFileDataUrl=e.target.result;document.getElementById('adPrev').innerHTML='<b style="color:green;">✅ '+f.name+' Ready</b>';};r.readAsDataURL(f);};
+window.previewFile=function(input,prevId,key){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{certFiles[key]=e.target.result;document.getElementById(prevId).innerText="âœ… "+f.name;};r.readAsDataURL(f);};
+window.previewAdFile=function(i){const f=i.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{adFileDataUrl=e.target.result;document.getElementById('adPrev').innerHTML='<b style="color:green;">âœ… '+f.name+' Ready</b>';};r.readAsDataURL(f);};
 window.showView=function(v){['view-parents','view-adminLogin','view-admin','view-adManager'].forEach(id=>{const e=document.getElementById(id);if(e){e.classList.add('hidden');e.style.display='';}});const t=document.getElementById('view-'+v);if(t){t.classList.remove('hidden');window.scrollTo(0,0);}if(v==='admin')loadAdmin();try{renderAds();}catch(e){}};
-window.adminLogin=function(){if(document.getElementById('adminPass').value==='mikeultra@333'){showView('admin');showToast('✅ Admin Granted');} else showToast('❌ Wrong password');};
+window.adminLogin=function(){if(document.getElementById('adminPass').value==='mikeultra@333'){showView('admin');showToast('âœ… Admin Granted');} else showToast('âŒ Wrong password');};
 
-// 24H TIMER FOR LIVE UPDATES
+// 24H TIMER
 window.renderAds=function(){
   const now=Date.now(); const limit=24*60*60*1000;
   const freshAds=advertsLocal.filter(a=>!a.createdAt || (now - a.createdAt) < limit);
   const ads=freshAds.length?freshAds:[{title:"Welcome 2027",desc:"Registration Open 2027",type:"function"}];
   document.getElementById('adsContainer').innerHTML=ads.map(a=>{
     let m=""; let time="";
-    if(a.createdAt){const hrs=Math.floor((now-a.createdAt)/(1000*60*60)); time=' <span class="text-[8px] bg-white/20 px-2 py-1 rounded-full">⏰ '+hrs+'h ago</span>';}
+    if(a.createdAt){const hrs=Math.floor((now-a.createdAt)/(1000*60*60)); time=' <span class="text-[8px] bg-white/20 px-2 py-1 rounded-full">â° '+hrs+'h ago</span>';}
     if(a.fileUrl){
-      // AUTO DETECT - interchange oba photo oba video
       const isVideo = a.type==="video" || a.fileUrl.includes('video') || a.fileUrl.endsWith('.mp4');
-      if(isVideo){
-        m='<video src="'+a.fileUrl+'" autoplay muted loop playsinline controls style="width:100%;border-radius:10px;margin-top:6px;max-height:200px;object-fit:cover"></video>';
-      } else if(a.type==="music"){
-        m='<audio src="'+a.fileUrl+'" controls style="width:100%"></audio>';
-      } else {
-        m='<img src="'+a.fileUrl+'" style="width:100%;border-radius:10px;margin-top:6px;max-height:200px;object-fit:cover">';
-      }
+      if(isVideo){m='<video src="'+a.fileUrl+'" autoplay muted loop playsinline controls style="width:100%;border-radius:10px;margin-top:6px;max-height:200px;object-fit:cover"></video>';}
+      else if(a.type==="music"){m='<audio src="'+a.fileUrl+'" controls style="width:100%"></audio>';}
+      else {m='<img src="'+a.fileUrl+'" style="width:100%;border-radius:10px;margin-top:6px;max-height:200px;object-fit:cover">';}
     }
     return '<div class="bg-white/10 rounded-xl p-3 mb-2 border border-white/10"><div class="font-bold text-sm">'+a.title+time+'</div><div class="text-xs opacity-80">'+(a.desc||"")+'</div>'+m+'</div>';
   }).join('');
 };
-
-// FIXED CONFIRM ACTIVE
 window.addAdvert=async function(){
   const t=document.getElementById('adTitle').value.trim();
-  if(!t &&!adFileDataUrl) return showToast('❌ Add Title or File');
+  if(!t &&!adFileDataUrl) return showToast('âŒ Add Title or File');
   const btn=document.getElementById('adBtn'); btn.innerText='UPLOADING TO CLOUD...'; btn.disabled=true;
   let finalUrl=adFileDataUrl;
   try{
@@ -130,14 +143,14 @@ window.addAdvert=async function(){
     const adv={title:t||"Advert",desc:document.getElementById('adDesc').value,type:document.getElementById('adType').value,fileUrl:finalUrl,date:new Date().toLocaleString(),createdAt:Date.now()};
     await addDoc(collection(db,'adverts'),adv);
     advertsLocal.unshift(adv);localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal));
-    showToast('✅ Advert Upload Success - LIVE!');document.getElementById('adPrev').innerHTML='<div style="background:#dcfce7;color:green;padding:10px;border-radius:12px;font-weight:900;text-align:center;">✅ Advert Upload Success - LIVE TO ALL PARENTS!<br><span style="font-size:10px;">Now visible to parents, auto clears after 24h</span></div>';
-  }catch(e){showToast('❌ '+e.message);document.getElementById('adPrev').innerHTML='<div style="background:#fca5a5;color:#991b1b;padding:10px;border-radius:12px;font-weight:900;">❌ Failed: '+e.message+'<br><span style="font-size:10px;">Enable Storage in Firebase Console</span></div>';btn.innerText='UPLOAD ADVERT';btn.disabled=false;return;}
+    showToast('âœ… Advert Upload Success - LIVE!');document.getElementById('adPrev').innerHTML='<div style="background:#dcfce7;color:green;padding:10px;border-radius:12px;font-weight:900;text-align:center;">âœ… Advert Upload Success - LIVE TO ALL PARENTS!<br><span style="font-size:10px;">Now visible to parents, auto clears after 24h</span></div>';
+  }catch(e){showToast('âŒ '+e.message);document.getElementById('adPrev').innerHTML='<div style="background:#fca5a5;color:#991b1b;padding:10px;border-radius:12px;font-weight:900;">âŒ Failed: '+e.message+'</div>';btn.innerText='UPLOAD ADVERT';btn.disabled=false;return;}
   adFileDataUrl="";document.getElementById('adTitle').value="";document.getElementById('adDesc').value="";renderAds();btn.innerText='UPLOAD ADVERT';btn.disabled=false;
   setTimeout(()=>{document.getElementById('adPrev').innerHTML=''; showView('admin');},2000);
 };
 window.addQuickAdvert=async function(){
   const t=document.getElementById('adTitleQuick').value.trim();const f=document.getElementById('adFileQuick').files[0];
-  if(!t &&!f) return showToast('❌ Add Title or File');
+  if(!t &&!f) return showToast('âŒ Add Title or File');
   const btn=document.getElementById('adQuickBtn'); btn.innerText='UPLOADING TO CLOUD...'; btn.disabled=true;
   let url="";if(f){const r=new FileReader();url=await new Promise(res=>{r.onload=e=>res(e.target.result);r.readAsDataURL(f);});}
   let finalUrl=url;
@@ -147,29 +160,28 @@ window.addQuickAdvert=async function(){
       await uploadString(storageRef, url, 'data_url');
       finalUrl=await getDownloadURL(storageRef);
     }
-        const fileType = f? (f.type.includes('video')? 'video' : f.type.includes('audio')? 'music' : 'photo') : 'photo';
+    const fileType = f? (f.type.includes('video')? 'video' : f.type.includes('audio')? 'music' : 'photo') : 'photo';
     const adv={title:t||"Live Update",desc:"",type:fileType,fileUrl:finalUrl,date:new Date().toLocaleString(),createdAt:Date.now()};
     await addDoc(collection(db,'adverts'),adv);
     advertsLocal.unshift(adv);localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal));
-    showToast('✅ Advert Upload Success - LIVE!');document.getElementById('adQuickPrev').innerHTML='<div style="background:white;color:green;padding:8px 12px;border-radius:12px;font-weight:900;display:inline-block;">✅ LIVE TO ALL PARENTS!</div>';
-  }catch(e){showToast('❌ '+e.message);document.getElementById('adQuickPrev').innerHTML='<div style="background:#fca5a5;color:#991b1b;padding:8px;border-radius:12px;font-weight:900;display:inline-block;">❌ '+e.message+'</div>';btn.innerText='UPLOAD LIVE';btn.disabled=false;return;}
+    showToast('âœ… Advert Upload Success - LIVE!');document.getElementById('adQuickPrev').innerHTML='<div style="background:white;color:green;padding:8px 12px;border-radius:12px;font-weight:900;display:inline-block;">âœ… LIVE TO ALL PARENTS!</div>';
+  }catch(e){showToast('âŒ '+e.message);document.getElementById('adQuickPrev').innerHTML='<div style="background:#fca5a5;color:#991b1b;padding:8px;border-radius:12px;font-weight:900;display:inline-block;">âŒ '+e.message+'</div>';btn.innerText='UPLOAD LIVE';btn.disabled=false;return;}
   document.getElementById('adTitleQuick').value="";document.getElementById('adFileQuick').value="";renderAds();btn.innerText='UPLOAD LIVE';btn.disabled=false;
   setTimeout(()=>{document.getElementById('adQuickPrev').innerHTML='';},4000);
 };
 window.sendComment=async function(){
-  const msg=document.getElementById('cMsg').value.trim();if(!msg) return showToast('❌ Write comment first');
+  const msg=document.getElementById('cMsg').value.trim();if(!msg) return showToast('âŒ Write comment first');
   const btn=document.getElementById('commentBtn'); btn.innerText='SENDING...'; btn.disabled=true;
   const c={name:document.getElementById('cName').value||'Parent',msg,date:new Date().toLocaleString(),createdAt:Date.now()};
   try{await addDoc(collection(db,'comments'),c);
-    document.getElementById('cStatus').innerHTML='<div style="background:#dcfce7;border:2px solid green;color:green;padding:12px;border-radius:12px;font-weight:900;text-align:center;">✅ Comment Sent Success!<br><span style="font-size:11px;font-weight:700;">School admin will see it in dashboard (auto clears after 24h)</span></div>';
-    document.getElementById('cMsg').value='';showToast('✅ Comment Sent Success!');
-  }catch(e){showToast('❌ '+e.message);document.getElementById('cStatus').innerHTML='<div style="color:red;font-weight:900;">❌ Failed: '+e.message+'</div>';}
+    document.getElementById('cStatus').innerHTML='<div style="background:#dcfce7;border:2px solid green;color:green;padding:12px;border-radius:12px;font-weight:900;text-align:center;">âœ… Comment Sent Success!<br><span style="font-size:11px;font-weight:700;">School admin will see it in dashboard (auto clears after 24h)</span></div>';
+    document.getElementById('cMsg').value='';showToast('âœ… Comment Sent Success!');
+  }catch(e){showToast('âŒ '+e.message);document.getElementById('cStatus').innerHTML='<div style="color:red;font-weight:900;">âŒ Failed: '+e.message+'</div>';}
   btn.innerText='Send Comment'; btn.disabled=false;
   setTimeout(()=>{document.getElementById('cStatus').innerHTML='';},5000);
 };
-
 function calcTotal(){let t=0;document.querySelectorAll('.feeChk:checked').forEach(c=>t+=parseInt(c.value));document.getElementById('totalPay').innerText=t.toLocaleString()+' UGX';}document.querySelectorAll('.feeChk').forEach(c=>c.addEventListener('change',calcTotal));calcTotal();
-document.getElementById('regForm').addEventListener('submit',async function(e){e.preventDefault();const btn=document.getElementById('submitBtn');if(btn.disabled)return;btn.disabled=true;btn.innerText='SAVING...';const fd=new FormData(this);let total=0;const fees=[];document.querySelectorAll('.feeChk:checked').forEach(c=>{fees.push(c.dataset.name);total+=parseInt(c.value);});const reg={id:'FK'+Date.now(),surname:fd.get('surname'),given:fd.get('given'),other:fd.get('other'),dob:fd.get('dob'),gender:fd.get('gender'),class:fd.get('class'),bankCode:fd.get('bankCode'),parentName:fd.get('parentName'),phone:fd.get('phone'),email:fd.get('email'),nin:fd.get('nin'),fees,total,requirements:fees.join(', '),payMethod:document.getElementById('payMethod').value,momo:document.getElementById('momoNumber').value,cert1:certFiles.cert1||'',cert2:certFiles.cert2||'',cert3:certFiles.cert3||'',date:new Date().toLocaleString(),createdAt:Date.now()};lastReg=reg;document.getElementById('receiptContent').innerHTML='<div class="text-center"><h3 class="font-black">RECEIPT</h3><p>'+reg.surname+' '+reg.given+' - '+reg.class+'</p><p class="font-black text-[#C1121F]">'+reg.bankCode+'</p><p class="font-black">'+total.toLocaleString()+' UGX</p><p class="text-[10px] mt-2">'+reg.requirements+'</p></div>';document.getElementById('receiptModal').classList.remove('hidden');let backup=JSON.parse(localStorage.getItem('fk_backup')||'[]');backup.unshift(reg);localStorage.setItem('fk_backup',JSON.stringify(backup));try{await addDoc(collection(db,'registrations'),reg);document.getElementById('saveStatus').innerText='✅ Saved to Cloud';showToast('✅ Registration Saved - '+reg.bankCode);}catch(err){document.getElementById('saveStatus').innerText='📴 Saved locally';showToast('✅ Saved locally - '+reg.bankCode);}this.reset();certFiles={};document.querySelectorAll('[id^=prev]').forEach(el=>el.innerText='');calcTotal();btn.disabled=false;btn.innerText='SUBMIT & GET RECEIPT INSTANT ⚡';});
+document.getElementById('regForm').addEventListener('submit',async function(e){e.preventDefault();const btn=document.getElementById('submitBtn');if(btn.disabled)return;btn.disabled=true;btn.innerText='SAVING...';const fd=new FormData(this);let total=0;const fees=[];document.querySelectorAll('.feeChk:checked').forEach(c=>{fees.push(c.dataset.name);total+=parseInt(c.value);});const reg={id:'FK'+Date.now(),surname:fd.get('surname'),given:fd.get('given'),other:fd.get('other'),dob:fd.get('dob'),gender:fd.get('gender'),class:fd.get('class'),bankCode:fd.get('bankCode'),parentName:fd.get('parentName'),phone:fd.get('phone'),email:fd.get('email'),nin:fd.get('nin'),fees,total,requirements:fees.join(', '),payMethod:document.getElementById('payMethod').value,momo:document.getElementById('momoNumber').value,cert1:certFiles.cert1||'',cert2:certFiles.cert2||'',cert3:certFiles.cert3||'',date:new Date().toLocaleString(),createdAt:Date.now()};lastReg=reg;document.getElementById('receiptContent').innerHTML='<div class="text-center"><h3 class="font-black">RECEIPT</h3><p>'+reg.surname+' '+reg.given+' - '+reg.class+'</p><p class="font-black text-[#C1121F]">'+reg.bankCode+'</p><p class="font-black">'+total.toLocaleString()+' UGX</p><p class="text-[10px] mt-2">'+reg.requirements+'</p></div>';document.getElementById('receiptModal').classList.remove('hidden');let backup=JSON.parse(localStorage.getItem('fk_backup')||'[]');backup.unshift(reg);localStorage.setItem('fk_backup',JSON.stringify(backup));try{await addDoc(collection(db,'registrations'),reg);document.getElementById('saveStatus').innerText='âœ… Saved to Cloud';showToast('âœ… Registration Saved - '+reg.bankCode);}catch(err){document.getElementById('saveStatus').innerText='ðŸ“´ Saved locally';showToast('âœ… Saved locally - '+reg.bankCode);}this.reset();certFiles={};document.querySelectorAll('[id^=prev]').forEach(el=>el.innerText='');calcTotal();btn.disabled=false;btn.innerText='SUBMIT & GET RECEIPT INSTANT âš¡';});
 window.closeReceipt=function(){document.getElementById('receiptModal').classList.add('hidden');};
 async function loadAdmin(){
   let backup=JSON.parse(localStorage.getItem('fk_backup')||'[]');
@@ -192,15 +204,98 @@ async function loadAdmin(){
       if(cnt)cnt.innerText=cs.length;
       if(list)list.innerHTML=cs.map(c=>{
         const hrs=Math.floor((now-c.createdAt)/(1000*60*60));
-        return '<div class="bg-white/10 md:bg-gray-50 md:text-black p-2 rounded mb-1"><b>'+c.name+':</b> '+c.msg+'<br><span class="text-[9px] opacity-60">⏰ '+hrs+'h ago (auto clear 24h) | '+c.date+'</span></div>';
+        return '<div class="bg-white/10 md:bg-gray-50 md:text-black p-2 rounded mb-1"><b>'+c.name+':</b> '+c.msg+'<br><span class="text-[9px] opacity-60">â° '+hrs+'h ago (auto clear 24h) | '+c.date+'</span></div>';
       }).join('')||'<p class="text-gray-400">No comments in last 24h - older auto cleared</p>';
     });
   }catch(e){}
 }
 window.renderAdmin=function(){const filter=document.getElementById('sortClass')?.value||'ALL';const list=filter==='ALL'?registrations:registrations.filter(r=>r.class===filter);document.getElementById('adminTbody').innerHTML=list.map(r=>'<tr class="border-b"><td class="p-3"><b>'+r.surname+' '+r.given+'</b></td><td class="p-3 text-center">'+r.class+'</td><td class="p-3 font-bold text-[#C1121F]">'+r.bankCode+'</td><td class="p-3">'+r.parentName+'<br>'+r.phone+'</td><td class="p-3">'+r.total.toLocaleString()+'<br><span class="text-[9px]">'+(r.requirements||r.fees?.join(', '))+'</span></td><td class="p-3"><button onclick="viewStudent(\''+r.id+'\')" class="bg-black text-white px-3 py-1 rounded-full text-[10px]">VIEW ALL</button></td></tr>').join('')||'<tr><td colspan=6 class="p-10 text-center">No data - New registrations will show here</td></tr>';};
 window.filterClass=function(){renderAdmin();};
-window.viewStudent=function(id){const r=registrations.find(x=>x.id===id);if(!r)return;document.getElementById('studentDetails').innerHTML='<p><b>Bank:</b> '+r.bankCode+'</p><p><b>Name:</b> '+r.surname+' '+r.given+' '+r.other+'</p><p><b>DOB:</b> '+r.dob+' | <b>Gender:</b> '+r.gender+' | <b>Class:</b> '+r.class+'</p><p><b>Parent:</b> '+r.parentName+' | <b>Phone:</b> '+r.phone+'</p><p><b>Email:</b> '+r.email+' | <b>NIN:</b> '+r.nin+'</p><p><b>Requirements Paid:</b> '+(r.requirements||'')+'</p><p><b>Total:</b> '+r.total.toLocaleString()+' UGX | <b>Method:</b> '+r.payMethod+' | <b>MoMo:</b> '+r.momo+'</p><p><b>Date:</b> '+r.date+'</p><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">'+(r.cert1?'<div><p class="font-bold">Birth Cert</p><img src="'+r.cert1+'" class="w-full rounded-xl border"></div>':'')+(r.cert2?'<div><p class="font-bold">Testimonial</p><img src="'+r.cert2+'" class="w-full rounded-xl border"></div>':'')+(r.cert3?'<div><p class="font-bold">Parent NIN</p><img src="'+r.cert3+'" class="w-full rounded-xl border"></div>':'')+'</div>';document.getElementById('studentModal').classList.remove('hidden');};
-window.exportExcel=function(){if(!registrations.length)return showToast('No data');let csv='Surname,Given,Class,Bank,Parent,Phone,Total,Requirements,Email,NIN,Date\n';registrations.forEach(r=>{csv+=`"${r.surname}","${r.given}","${r.class}","${r.bankCode}","${r.parentName}","${r.phone}","${r.total}","${r.requirements||''}","${r.email}","${r.nin}","${r.date}"\n`;});const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='kanyonza-full.csv';a.click();showToast('✅ Excel Downloaded');};
+
+// âœ… NEW FIX - VIEW ALL NOW SAVES TO browsedFiles + PDF AUTO SAVE WORKING
+window.viewStudent=async function(id){
+  const r=registrations.find(x=>x.id===id);
+  if(!r)return;
+  currentViewedId=id;
+  document.getElementById('studentDetails').innerHTML='<p><b>Bank:</b> '+r.bankCode+'</p><p><b>Name:</b> '+r.surname+' '+r.given+' '+r.other+'</p><p><b>DOB:</b> '+r.dob+' | <b>Gender:</b> '+r.gender+' | <b>Class:</b> '+r.class+'</p><p><b>Parent:</b> '+r.parentName+' | <b>Phone:</b> '+r.phone+'</p><p><b>Email:</b> '+r.email+' | <b>NIN:</b> '+r.nin+'</p><p><b>Requirements Paid:</b> '+(r.requirements||'')+'</p><p><b>Total:</b> '+r.total.toLocaleString()+' UGX | <b>Method:</b> '+r.payMethod+' | <b>MoMo:</b> '+r.momo+'</p><p><b>Date:</b> '+r.date+'</p><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">'+(r.cert1?'<div><p class="font-bold">Birth Cert</p><img src="'+r.cert1+'" class="w-full rounded-xl border"></div>':'')+(r.cert2?'<div><p class="font-bold">Testimonial</p><img src="'+r.cert2+'" class="w-full rounded-xl border"></div>':'')+(r.cert3?'<div><p class="font-bold">Parent NIN</p><img src="'+r.cert3+'" class="w-full rounded-xl border"></div>':'')+'</div>';
+  document.getElementById('studentModal').classList.remove('hidden');
+
+  // AUTO SAVE TO browsedFiles - THIS FIXES PREVIEW PANEL ISSUE
+  try{
+    await addDoc(collection(db,'browsedFiles'),{
+      type: 'view_all',
+      studentId: r.id,
+      bankCode: r.bankCode,
+      studentName: r.surname+' '+r.given,
+      class: r.class,
+      viewedAt: Date.now(),
+      date: new Date().toLocaleString()
+    });
+    showToast('âœ… View saved to browsedFiles');
+  }catch(e){ console.log('browsedFiles save failed', e); }
+
+  // PDF AUTO SAVE AFTER VIEW ALL CLICK - NOW FIXED AND ACTIVE
+  try{
+    const {jsPDF}=window.jspdf;
+    const doc=new jsPDF();
+    doc.setFontSize(12);
+    doc.text("FR KANYONZA - STUDENT DETAILS",10,10);
+    doc.setFontSize(10);
+    let y=20;
+    doc.text(`Bank: ${r.bankCode}`,10,y);y+=7;
+    doc.text(`Name: ${r.surname} ${r.given} ${r.other}`,10,y);y+=7;
+    doc.text(`Class: ${r.class} | Gender: ${r.gender} | DOB: ${r.dob}`,10,y);y+=7;
+    doc.text(`Parent: ${r.parentName} | Phone: ${r.phone}`,10,y);y+=7;
+    doc.text(`Email: ${r.email} | NIN: ${r.nin}`,10,y);y+=7;
+    doc.text(`Requirements: ${r.requirements||''}`,10,y);y+=7;
+    doc.text(`Total: ${r.total} UGX | Method: ${r.payMethod} | MoMo: ${r.momo}`,10,y);y+=7;
+    doc.text(`Date: ${r.date}`,10,y);y+=10;
+    doc.text("--- Auto PDF save after View All click ---",10,y);
+    doc.save(`${r.bankCode}_${r.surname}_Details.pdf`);
+    showToast('ðŸ“„ PDF Auto Saved - '+r.bankCode);
+  }catch(e){ console.error("PDF auto save error", e); showToast('PDF error: '+e.message); }
+};
+
+// SAVE BUTTON FUNCTIONS
+window.saveCurrentView=async function(){
+  if(!currentViewedId) return showToast('No student selected');
+  const r=registrations.find(x=>x.id===currentViewedId);
+  if(!r) return;
+  try{
+    await addDoc(collection(db,'browsedFiles'),{
+      type: 'manual_save_view',
+      studentId: r.id,
+      bankCode: r.bankCode,
+      studentName: r.surname+' '+r.given,
+      viewedAt: Date.now(),
+      date: new Date().toLocaleString()
+    });
+    showToast('âœ… Saved to browsedFiles Cloud');
+  }catch(e){ showToast('âŒ '+e.message); }
+};
+window.saveAllViewClicks=async function(){
+  try{
+    await addDoc(collection(db,'browsedFiles'),{
+      type: 'admin_view_all_bulk',
+      total: registrations.length,
+      viewedAt: Date.now(),
+      date: new Date().toLocaleString()
+    });
+    showToast('âœ… All View Click Saved to browsedFiles - Check Preview Panel!');
+  }catch(e){ showToast('âŒ '+e.message); }
+};
+window.downloadCurrentPDF=function(){
+  if(!currentViewedId) return;
+  const r=registrations.find(x=>x.id===currentViewedId);
+  if(!r) return;
+  const {jsPDF}=window.jspdf;const doc=new jsPDF();
+  doc.text(`${r.bankCode} - ${r.surname} ${r.given}`,10,10);
+  doc.text(`Class: ${r.class} | Total: ${r.total}`,10,20);
+  doc.save(`${r.bankCode}_Manual.pdf`);
+  showToast('ðŸ“„ PDF Saved');
+};
+
+window.exportExcel=function(){if(!registrations.length)return showToast('No data');let csv='Surname,Given,Class,Bank,Parent,Phone,Total,Requirements,Email,NIN,Date\n';registrations.forEach(r=>{csv+=`"${r.surname}","${r.given}","${r.class}","${r.bankCode}","${r.parentName}","${r.phone}","${r.total}","${r.requirements||''}","${r.email}","${r.nin}","${r.date}"\n`;});const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='kanyonza-full.csv';a.click();showToast('âœ… Excel Downloaded');};
 window.downloadFullPDF=function(){
   if(!registrations.length) return showToast('No data');
   const {jsPDF}=window.jspdf;const doc=new jsPDF();
@@ -209,10 +304,10 @@ window.downloadFullPDF=function(){
   registrations.forEach((r,i)=>{if(y>275){doc.addPage();y=10;} const line=(i+1)+". "+r.bankCode+" | "+r.surname+" "+r.given+" | "+r.class+" | "+r.parentName+" | "+r.phone+" | Total:"+r.total+" | Req:"+(r.requirements||'')+" | Date:"+r.date; doc.text(line,10,y);y+=6;});
   doc.save('Fr-Kanyonza-Bursar-Backup-'+Date.now()+'.pdf');
   isAfterBackup=true;localStorage.removeItem('fk_backup');registrations=[];
-  document.getElementById('adminTbody').innerHTML='<tr><td colspan=6 class="p-10 text-center"><b class="text-green-600 text-sm">✅ PDF Backup Done!<br>Admin field cleared (phone storage).<br>All data still SAFE in Firestore Cloud.<br><span class="text-[10px] text-black">Refresh to load Cloud data again if needed.</span></b></td></tr>';
-  showToast('✅ PDF Backup Done - Field cleared, Cloud safe!');
+  document.getElementById('adminTbody').innerHTML='<tr><td colspan=6 class="p-10 text-center"><b class="text-green-600 text-sm">âœ… PDF Backup Done!<br>Admin field cleared (phone storage).<br>All data still SAFE in Firestore Cloud.<br><span class="text-[10px] text-black">Refresh to load Cloud data again if needed.</span></b></td></tr>';
+  showToast('âœ… PDF Backup Done - Field cleared, Cloud safe!');
 };
 showView('parents');renderAds();
 </script>
-<footer class="mt-10 bg-black text-white p-6 text-center text-[10px]"><p class="font-bold">Developer: Amanya Mike | 0763821339</p></footer>
+<footer class="mt-10 bg-black text-white p-6 text-center text-[10px]"><p class="font-bold">Developer: Amanya Mike | 0763821339 | FIXED V5</p></footer>
 </body></html>

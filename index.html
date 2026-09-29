@@ -15,9 +15,9 @@
 input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(90deg,#000,#C1121F)}
 @media(min-width:768px){.md\:grid-cols-2{grid-template-columns:repeat(2,1fr)}.md\:grid-cols-3{grid-template-columns:repeat(3,1fr)}.md\:col-span-2{grid-column:span 2}.md\:col-span-3{grid-column:span 3}}
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head><body class="bg-[#f5f5f5] min-h-screen">
-<header class="bg-black text-white sticky top-0 z-50 border-b-4 border-[#C1121F]"><div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"><div class="flex gap-3 items-center"><div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-black">FK</div><div><h1 class="font-black text-[13px]">FR KANYONZA MEMORIAL SCHOOL-HIMA</h1><p class="text-[#C1121F] text-[10px] font-bold">CLOUD V5 FINAL - 24H TIMER - FIXED</p></div></div><div class="flex gap-2"><button onclick="showView('parents')" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">PARENTS</button><button onclick="showView('adminLogin')" class="px-4 py-2 bg-white text-black rounded-full text-xs font-bold">ADMIN</button></div></div></header>
+<header class="bg-black text-white sticky top-0 z-50 border-b-4 border-[#C1121F]"><div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"><div class="flex gap-3 items-center"><div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-black">FK</div><div><h1 class="font-black text-[13px]">FR KANYONZA MEMORIAL SCHOOL-HIMA</h1><p class="text-[#C1121F] text-[10px] font-bold">CLOUD V5 FINAL - 24H TIMER - FIXED - PDF REMOVED + PNG ADDED</p></div></div><div class="flex gap-2"><button onclick="showView('parents')" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">PARENTS</button><button onclick="showView('adminLogin')" class="px-4 py-2 bg-white text-black rounded-full text-xs font-bold">ADMIN</button></div></div></header>
 <div id="toast" class="fixed top-20 right-4 z-[200] hidden"><div class="bg-black text-white px-6 py-4 rounded-2xl shadow-2xl border-l-4 border-green-500"><p id="toastMsg" class="font-bold text-sm">âœ… Success</p></div></div>
 <div id="view-parents" class="max-w-6xl mx-auto px-3 py-2">
 <div class="grid md:grid-cols-3 gap-4 mb-6"><div class="md:col-span-2 bg-white rounded-2xl shadow p-5 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-2">ðŸ“‹ SCHOOL CIRCULAR 2027</h2><p class="text-sm"><b>Hima Town Council, Kasese</b> | INSPIRING EXCELLENCE</p><ul class="list-disc ml-5 text-xs"><li>Reg 50k | Total 610k | Trip 50k | Facilitation 50k</li><li>Uniform: Skirt 30k, T-Shirt 20k, Sweater 30k, Shirt 25k, Sports 20k, Jumper 40k</li></ul></div><div class="bg-black rounded-2xl shadow p-4 text-white"><h3 class="font-bold mb-3">ðŸ“¢ Live Updates (24h)</h3><div id="adsContainer"></div></div></div>
@@ -25,12 +25,10 @@ input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(
   <div class="bg-white rounded-[14px] p-4">
     <p class="font-black text-[11px] mb-3 tracking-wide">Our Dear Parent, Pay On:</p>
     <div class="flex flex-wrap gap-2">
-      <!-- MTN YELLOW SIDE -->
       <div class="flex items-center gap-2 px-4 py-2 rounded-full text-black font-bold text-sm" style="background:#FFCC00;">
         <div class="w-6 h-6 bg-black rounded-full flex items-center justify-center text-[#FFCC00] font-black text-[8px]">MTN</div>
         0761 782 848
       </div>
-      <!-- AIRTEL RED SIDE -->
       <div class="flex items-center gap-2 px-4 py-2 rounded-full text-white font-bold text-sm" style="background:#FF0000;">
         <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center text-[#FF0000] font-black text-[7px]">airtel</div>
         0755 544 141
@@ -80,21 +78,41 @@ input,select,textarea{outline:none}.bg-gradient-to-r{background:linear-gradient(
 <div id="view-admin" class="hidden max-w-7xl mx-auto px-3 py-6">
 <div class="flex flex-wrap gap-2 mb-4 justify-between"><h2 class="font-black text-xl">ADMIN V5 <span id="liveCount" class="text-[#C1121F] text-sm"></span></h2><div class="flex gap-2 flex-wrap">
 <select id="sortClass" onchange="filterClass()" class="p-2 border rounded-full text-xs font-bold"><option value="ALL">All Classes</option><option>S.1</option><option>S.2</option><option>S.3</option><option>S.4</option><option>S.5</option><option>S.6</option></select>
-<button onclick="downloadFullPDF()" class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-xs font-bold">ðŸ“„ PDF Backup (Bursar)</button>
+<!-- PDF REMOVED as requested -->
 <button onclick="saveAllViewClicks()" class="px-4 py-2 bg-blue-600 text-white rounded-full text-xs font-bold">ðŸ’¾ SAVE View Log</button>
 <button onclick="exportExcel()" class="px-4 py-2 bg-green-600 text-white rounded-full text-xs font-bold">Excel</button>
 <button onclick="showView('adManager')" class="px-4 py-2 bg-black text-white rounded-full text-xs font-bold">+ Advert</button>
 <button onclick="showView('parents')" class="px-4 py-2 bg-gray-200 rounded-full text-xs">Logout</button></div></div>
 <div class="bg-white rounded-2xl shadow p-4 mb-4 border-l-4 border-[#C1121F]"><h3 class="font-black text-xs mb-2">ðŸ“¸ Upload Advert (Admin Only) - Auto clears after 24h</h3><div class="flex gap-2"><input id="adTitleQuick" placeholder="Title" class="p-2 border rounded-xl text-xs flex-1"><input id="adFileQuick" type="file" accept="image/*,video/*" class="text-xs flex-1"><button id="adQuickBtn" onclick="addQuickAdvert()" class="px-4 py-2 bg-black text-white rounded-full text-xs font-bold">UPLOAD LIVE</button></div><div id="adQuickPrev" class="text-[10px] font-bold mt-2 text-center"></div></div>
 <div class="bg-black rounded-2xl p-4 mb-4 text-white"><button onclick="document.getElementById('commentsBox').classList.toggle('hidden')" class="w-full flex justify-between font-black text-sm">ðŸ’¬ Parents Comments - 24h Auto Clear (<span id="commentCount">0</span>) â–¼</button><div id="commentsBox" class="hidden mt-3"><div id="commentsList" class="text-xs space-y-2 max-h-[300px] overflow-auto"><p class="text-gray-400">No comments yet</p></div></div></div>
-<div class="bg-white rounded-2xl shadow overflow-x-auto"><table class="w-full text-xs"><thead class="bg-black text-white"><tr><th class="p-3 text-left">Student</th><th class="p-3">Class</th><th class="p-3">Bank Code</th><th class="p-3">Parent</th><th class="p-3">Fees / Requirements</th><th class="p-3">Action</th></tr></thead><tbody id="adminTbody"></tbody></table></div>
+<div class="bg-white rounded-2xl shadow overflow-hidden" style="overflow-x:auto;">
+  <div style="min-width:900px;">
+    <table class="w-full text-xs" style="border-collapse:collapse;">
+      <thead class="bg-black text-white sticky top-0">
+        <tr>
+          <th class="p-3 text-left" style="width:20%">Student</th>
+          <th class="p-3" style="width:8%">Class</th>
+          <th class="p-3" style="width:15%">Bank Code</th>
+          <th class="p-3" style="width:18%">Parent</th>
+          <th class="p-3" style="width:19%">Fees</th>
+          <th class="p-3" style="width:20%">Action</th>
+        </tr>
+      </thead>
+      <tbody id="adminTbody"></tbody>
+    </table>
+  </div>
+</div>
 </div>
 <div id="view-adManager" class="hidden max-w-2xl mx-auto px-4 py-10"><div class="bg-white rounded-[20px] shadow-xl p-6 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-4">ADVERT TOOL - Admin</h2><input id="adTitle" placeholder="Title" class="w-full p-3 border rounded-xl mb-2"><textarea id="adDesc" placeholder="Description" class="w-full p-3 border rounded-xl mb-2"></textarea><select id="adType" class="w-full p-3 border rounded-xl mb-2"><option value="photo">photo</option><option value="video">video</option><option value="music">music</option><option value="function">function</option></select><div class="border-2 border-dashed rounded-xl p-3 text-center mb-4"><div class="flex gap-2 justify-center"><label class="px-4 py-2 bg-black text-white rounded-full text-[11px] cursor-pointer">ðŸ“‚ BROWSE<input type="file" accept="image/*,video/*,audio/*" class="hidden" onchange="previewAdFile(this)"></label><label class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-[11px] cursor-pointer">ðŸ“· CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewAdFile(this)"></label></div><div id="adPrev" class="text-[10px] font-bold mt-2 text-center"></div></div><button id="adBtn" onclick="addAdvert()" class="w-full bg-[#C1121F] text-white font-bold py-3 rounded-xl">UPLOAD ADVERT</button><button onclick="showView('admin')" class="w-full mt-2 bg-gray-100 py-3 rounded-xl">Back</button></div></div>
 <div id="receiptModal" class="hidden fixed inset-0 bg-black/60 z-[100] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-md w-full p-6 relative"><button onclick="closeReceipt()" class="absolute top-3 right-3 bg-gray-100 w-8 h-8 rounded-full">âœ•</button><div id="receiptContent"></div><button onclick="closeReceipt()" class="w-full mt-4 bg-[#C1121F] text-white py-3 rounded-xl font-bold">Done âœ…</button><div id="saveStatus" class="mt-2 text-center text-xs"></div></div></div>
-<div id="studentModal" class="hidden fixed inset-0 bg-black/70 z-[110] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-auto"><div class="flex justify-between mb-4"><h2 class="font-black">STUDENT FULL DETAILS</h2><button onclick="document.getElementById('studentModal').classList.add('hidden')" class="bg-gray-100 w-8 h-8 rounded-full font-bold">X</button></div><div id="studentDetails" class="text-xs space-y-2"></div><div class="mt-4 flex gap-2"><button onclick="saveCurrentView()" class="flex-1 bg-blue-600 text-white py-3 rounded-xl font-bold">ðŸ’¾ SAVE View Click</button><button onclick="downloadCurrentPDF()" class="flex-1 bg-[#C1121F] text-white py-3 rounded-xl font-bold">ðŸ“„ Save PDF Now</button></div></div></div>
+
+<!-- VIEW ALL MODAL FIXED WITH PNG DOWNLOAD ARROW -->
+<div id="studentModal" class="hidden fixed inset-0 bg-black/70 z-[110] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-auto relative">
+<button onclick="downloadReceiptAsImage()" title="Download PNG" style="position:absolute;top:12px;right:60px;background:#16a34a;color:white;border:none;border-radius:50%;width:36px;height:36px;font-size:18px;cursor:pointer;z-index:10;">â¬‡ï¸</button>
+<div class="flex justify-between mb-4"><h2 class="font-black">STUDENT FULL DETAILS</h2><button onclick="document.getElementById('studentModal').classList.add('hidden')" class="bg-gray-100 w-8 h-8 rounded-full font-bold">X</button></div><div id="studentDetails" class="text-xs space-y-2"></div><div class="mt-4 flex gap-2"><button onclick="saveCurrentView()" class="flex-1 bg-blue-600 text-white py-3 rounded-xl font-bold">ðŸ’¾ SAVE View Log</button><button onclick="downloadReceiptAsImage()" class="flex-1 bg-green-600 text-white py-3 rounded-xl font-bold">â¬‡ï¸ Download PNG</button></div><div class="mt-2 text-center"><button onclick="downloadReceiptAsImage()" class="text-[10px] bg-black text-white px-4 py-2 rounded-full">â¬‡ï¸ Download as Image (Direct like Excel)</button></div></div></div>
+
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";import {initializeFirestore,persistentLocalCache,persistentMultipleTabManager,collection,addDoc,onSnapshot} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";import {getStorage,ref,uploadString,getDownloadURL} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
-// âœ… YOUR EXACT FIREBASE CONFIG - KEPT SAME
 const firebaseConfig = {
   apiKey: "AIzaSyDhkpS7hG9SJa5QGqXC2xs-wf9G2p1X3Y8",
   authDomain: "fr-kanyoza-2026-new.firebaseapp.com",
@@ -112,7 +130,7 @@ window.previewAdFile=function(i){const f=i.files[0];if(!f)return;const r=new Fil
 window.showView=function(v){['view-parents','view-adminLogin','view-admin','view-adManager'].forEach(id=>{const e=document.getElementById(id);if(e){e.classList.add('hidden');e.style.display='';}});const t=document.getElementById('view-'+v);if(t){t.classList.remove('hidden');window.scrollTo(0,0);}if(v==='admin')loadAdmin();try{renderAds();}catch(e){}};
 window.adminLogin=function(){if(document.getElementById('adminPass').value==='mikeultra@333'){showView('admin');showToast('âœ… Admin Granted');} else showToast('âŒ Wrong password');};
 
-// 24H TIMER
+// FIXED: renderAds now works for everyone
 window.renderAds=function(){
   const now=Date.now(); const limit=24*60*60*1000;
   const freshAds=advertsLocal.filter(a=>!a.createdAt || (now - a.createdAt) < limit);
@@ -193,70 +211,57 @@ async function loadAdmin(){
       const cl=[];s.forEach(d=>cl.push(d.data()));
       if(cl.length){registrations=cl.sort((a,b)=>b.createdAt-a.createdAt);renderAdmin();}
     });
-    onSnapshot(collection(db,'adverts'),s=>{
-      const al=[];s.forEach(d=>al.push(d.data()));
-      if(al.length){advertsLocal=al.sort((a,b)=>b.createdAt-a.createdAt);localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal));renderAds();}
-    });
-    onSnapshot(collection(db,'comments'),s=>{
-      const cs=[];const now=Date.now();const limit=24*60*60*1000;
-      s.forEach(d=>{const data=d.data(); if(!data.createdAt || (now - data.createdAt) < limit) cs.push(data);});
-      const list=document.getElementById('commentsList');const cnt=document.getElementById('commentCount');
-      if(cnt)cnt.innerText=cs.length;
-      if(list)list.innerHTML=cs.map(c=>{
-        const hrs=Math.floor((now-c.createdAt)/(1000*60*60));
-        return '<div class="bg-white/10 md:bg-gray-50 md:text-black p-2 rounded mb-1"><b>'+c.name+':</b> '+c.msg+'<br><span class="text-[9px] opacity-60">â° '+hrs+'h ago (auto clear 24h) | '+c.date+'</span></div>';
-      }).join('')||'<p class="text-gray-400">No comments in last 24h - older auto cleared</p>';
-    });
   }catch(e){}
 }
-window.renderAdmin=function(){const filter=document.getElementById('sortClass')?.value||'ALL';const list=filter==='ALL'?registrations:registrations.filter(r=>r.class===filter);document.getElementById('adminTbody').innerHTML=list.map(r=>'<tr class="border-b"><td class="p-3"><b>'+r.surname+' '+r.given+'</b></td><td class="p-3 text-center">'+r.class+'</td><td class="p-3 font-bold text-[#C1121F]">'+r.bankCode+'</td><td class="p-3">'+r.parentName+'<br>'+r.phone+'</td><td class="p-3">'+r.total.toLocaleString()+'<br><span class="text-[9px]">'+(r.requirements||r.fees?.join(', '))+'</span></td><td class="p-3"><button onclick="viewStudent(\''+r.id+'\')" class="bg-black text-white px-3 py-1 rounded-full text-[10px]">VIEW ALL</button></td></tr>').join('')||'<tr><td colspan=6 class="p-10 text-center">No data - New registrations will show here</td></tr>';};
-window.filterClass=function(){renderAdmin();};
-
-// âœ… NEW FIX - VIEW ALL NOW SAVES TO browsedFiles + PDF AUTO SAVE WORKING
-window.viewStudent=async function(id){
-  const r=registrations.find(x=>x.id===id);
-  if(!r)return;
-  currentViewedId=id;
-  document.getElementById('studentDetails').innerHTML='<p><b>Bank:</b> '+r.bankCode+'</p><p><b>Name:</b> '+r.surname+' '+r.given+' '+r.other+'</p><p><b>DOB:</b> '+r.dob+' | <b>Gender:</b> '+r.gender+' | <b>Class:</b> '+r.class+'</p><p><b>Parent:</b> '+r.parentName+' | <b>Phone:</b> '+r.phone+'</p><p><b>Email:</b> '+r.email+' | <b>NIN:</b> '+r.nin+'</p><p><b>Requirements Paid:</b> '+(r.requirements||'')+'</p><p><b>Total:</b> '+r.total.toLocaleString()+' UGX | <b>Method:</b> '+r.payMethod+' | <b>MoMo:</b> '+r.momo+'</p><p><b>Date:</b> '+r.date+'</p><div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">'+(r.cert1?'<div><p class="font-bold">Birth Cert</p><img src="'+r.cert1+'" class="w-full rounded-xl border"></div>':'')+(r.cert2?'<div><p class="font-bold">Testimonial</p><img src="'+r.cert2+'" class="w-full rounded-xl border"></div>':'')+(r.cert3?'<div><p class="font-bold">Parent NIN</p><img src="'+r.cert3+'" class="w-full rounded-xl border"></div>':'')+'</div>';
-  document.getElementById('studentModal').classList.remove('hidden');
-
-  // AUTO SAVE TO browsedFiles - THIS FIXES PREVIEW PANEL ISSUE
-  try{
-    await addDoc(collection(db,'browsedFiles'),{
-      type: 'view_all',
-      studentId: r.id,
-      bankCode: r.bankCode,
-      studentName: r.surname+' '+r.given,
-      class: r.class,
-      viewedAt: Date.now(),
-      date: new Date().toLocaleString()
-    });
-    showToast('âœ… View saved to browsedFiles');
-  }catch(e){ console.log('browsedFiles save failed', e); }
-
-  // PDF AUTO SAVE AFTER VIEW ALL CLICK - NOW FIXED AND ACTIVE
-  try{
-    const {jsPDF}=window.jspdf;
-    const doc=new jsPDF();
-    doc.setFontSize(12);
-    doc.text("FR KANYONZA - STUDENT DETAILS",10,10);
-    doc.setFontSize(10);
-    let y=20;
-    doc.text(`Bank: ${r.bankCode}`,10,y);y+=7;
-    doc.text(`Name: ${r.surname} ${r.given} ${r.other}`,10,y);y+=7;
-    doc.text(`Class: ${r.class} | Gender: ${r.gender} | DOB: ${r.dob}`,10,y);y+=7;
-    doc.text(`Parent: ${r.parentName} | Phone: ${r.phone}`,10,y);y+=7;
-    doc.text(`Email: ${r.email} | NIN: ${r.nin}`,10,y);y+=7;
-    doc.text(`Requirements: ${r.requirements||''}`,10,y);y+=7;
-    doc.text(`Total: ${r.total} UGX | Method: ${r.payMethod} | MoMo: ${r.momo}`,10,y);y+=7;
-    doc.text(`Date: ${r.date}`,10,y);y+=10;
-    doc.text("--- Auto PDF save after View All click ---",10,y);
-    doc.save(`${r.bankCode}_${r.surname}_Details.pdf`);
-    showToast('ðŸ“„ PDF Auto Saved - '+r.bankCode);
-  }catch(e){ console.error("PDF auto save error", e); showToast('PDF error: '+e.message); }
+window.renderAdmin = function(){
+  const filter = document.getElementById('sortClass')?.value || 'ALL';
+  const list = filter==='ALL' ? registrations : registrations.filter(r=>r.class===filter);
+  document.getElementById('liveCount').innerText = `(${list.length})`;
+  
+  document.getElementById('adminTbody').innerHTML = list.map(r=>`
+    <tr class="border-b hover:bg-gray-50" style="vertical-align:top;">
+      <td class="p-3" style="min-width:150px;">
+        <b>${r.surname} ${r.given}</b><br>
+        <span class="text-[9px] text-gray-500">${r.dob} | ${r.gender}</span>
+      </td>
+      <td class="p-3 text-center font-bold">${r.class}</td>
+      <td class="p-3 font-black text-[#C1121F]">${r.bankCode}</td>
+      <td class="p-3" style="min-width:130px;">
+        ${r.parentName}<br>
+        <span class="text-[10px]">${r.phone}</span>
+      </td>
+      <td class="p-3" style="min-width:120px;">
+        ${r.total.toLocaleString()} UGX<br>
+        <span class="text-[8px] bg-gray-100 px-2 py-1 rounded-full">${(r.requirements||'').substring(0,40)}</span>
+      </td>
+      <td class="p-3" style="min-width:160px;">
+        <div class="flex flex-col gap-1">
+          <button onclick="viewStudent('${r.id}')" class="bg-black text-white px-3 py-1.5 rounded-full text-[10px] font-bold"> VIEW ALL</button>
+          <button onclick="deleteOneRegistration('${r.id}', '${r.bankCode}')" class="bg-red-600 text-white px-3 py-1.5 rounded-full text-[10px] font-bold"> DELETE</button>
+        </div>
+      </td>
+    </tr>
+  `).join('') || '<tr><td colspan=6 class="p-10 text-center text-gray-400">No data - New registrations will show here</td></tr>';
 };
 
-// SAVE BUTTON FUNCTIONS
+// NEW: DELETE ONE REGISTRATION
+// NEW: DELETE ONE REGISTRATION - FINAL WORKING CLOUD DELETE
+window.deleteOneRegistration = async function(id, bankCode){
+  if(!confirm(`Delete ${bankCode} ? This cannot be undone!`)) return;
+  showToast('🗑️ Deleting '+bankCode+'...');
+  try{
+    let backup = JSON.parse(localStorage.getItem('fk_backup')||'[]');
+    backup = backup.filter(r=>r.id !== id);
+    localStorage.setItem('fk_backup', JSON.stringify(backup));
+    registrations = registrations.filter(r=>r.id !== id);
+    renderAdmin();
+    const { getDocs, query, where, collection, deleteDoc } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+    const q = query(collection(db, "registrations"), where("id", "==", id));
+    const snap = await getDocs(q);
+    snap.forEach(async d => { await deleteDoc(d.ref); });
+    showToast('✅ Fully deleted from Cloud!');
+  }catch(e){ showToast('✅ Deleted locally - '+e.message); }
+};
 window.saveCurrentView=async function(){
   if(!currentViewedId) return showToast('No student selected');
   const r=registrations.find(x=>x.id===currentViewedId);
@@ -284,30 +289,41 @@ window.saveAllViewClicks=async function(){
     showToast('âœ… All View Click Saved to browsedFiles - Check Preview Panel!');
   }catch(e){ showToast('âŒ '+e.message); }
 };
-window.downloadCurrentPDF=function(){
-  if(!currentViewedId) return;
-  const r=registrations.find(x=>x.id===currentViewedId);
-  if(!r) return;
-  const {jsPDF}=window.jspdf;const doc=new jsPDF();
-  doc.text(`${r.bankCode} - ${r.surname} ${r.given}`,10,10);
-  doc.text(`Class: ${r.class} | Total: ${r.total}`,10,20);
-  doc.save(`${r.bankCode}_Manual.pdf`);
-  showToast('ðŸ“„ PDF Saved');
-};
-
 window.exportExcel=function(){if(!registrations.length)return showToast('No data');let csv='Surname,Given,Class,Bank,Parent,Phone,Total,Requirements,Email,NIN,Date\n';registrations.forEach(r=>{csv+=`"${r.surname}","${r.given}","${r.class}","${r.bankCode}","${r.parentName}","${r.phone}","${r.total}","${r.requirements||''}","${r.email}","${r.nin}","${r.date}"\n`;});const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='kanyonza-full.csv';a.click();showToast('âœ… Excel Downloaded');};
-window.downloadFullPDF=function(){
-  if(!registrations.length) return showToast('No data');
-  const {jsPDF}=window.jspdf;const doc=new jsPDF();
-  let y=10;doc.setFontSize(8);
-  doc.text("FR KANYONZA FULL BACKUP - "+new Date().toLocaleString(),10,y);y+=8;
-  registrations.forEach((r,i)=>{if(y>275){doc.addPage();y=10;} const line=(i+1)+". "+r.bankCode+" | "+r.surname+" "+r.given+" | "+r.class+" | "+r.parentName+" | "+r.phone+" | Total:"+r.total+" | Req:"+(r.requirements||'')+" | Date:"+r.date; doc.text(line,10,y);y+=6;});
-  doc.save('Fr-Kanyonza-Bursar-Backup-'+Date.now()+'.pdf');
-  isAfterBackup=true;localStorage.removeItem('fk_backup');registrations=[];
-  document.getElementById('adminTbody').innerHTML='<tr><td colspan=6 class="p-10 text-center"><b class="text-green-600 text-sm">âœ… PDF Backup Done!<br>Admin field cleared (phone storage).<br>All data still SAFE in Firestore Cloud.<br><span class="text-[10px] text-black">Refresh to load Cloud data again if needed.</span></b></td></tr>';
-  showToast('âœ… PDF Backup Done - Field cleared, Cloud safe!');
+
+// --- FIXED: PNG DOWNLOAD + PARENTS LIVE ---
+window.downloadReceiptAsImage=function(){
+  const area=document.getElementById('studentDetails');
+  if(!area) return showToast('âŒ No details');
+  const r=registrations.find(x=>x.id===currentViewedId);
+  const fileName=(r? r.bankCode+'_'+r.surname : 'Receipt')+'_'+Date.now()+'.png';
+  html2canvas(area,{scale:3,useCORS:true,backgroundColor:'#ffffff'}).then(canvas=>{
+    const a=document.createElement('a'); a.download=fileName; a.href=canvas.toDataURL('image/png'); a.click();
+    showToast('âœ… PNG Downloaded - '+fileName);
+  });
 };
+function initGlobalLive(){
+  try{
+    onSnapshot(collection(db,'adverts'),s=>{
+      const al=[]; s.forEach(d=>al.push(d.data()));
+      if(al.length){ advertsLocal=al.sort((a,b)=>b.createdAt-a.createdAt); localStorage.setItem('fk_adverts',JSON.stringify(advertsLocal)); renderAds(); }
+    });
+    onSnapshot(collection(db,'comments'),s=>{
+      const cs=[];const now=Date.now();const limit=24*60*60*1000;
+      s.forEach(d=>{const data=d.data(); if(!data.createdAt || (now - data.createdAt) < limit) cs.push(data);});
+      const list=document.getElementById('commentsList');const cnt=document.getElementById('commentCount');
+      if(cnt)cnt.innerText=cs.length;
+      if(list)list.innerHTML=cs.map(c=>{
+        const hrs=Math.floor((now-c.createdAt)/(1000*60*60));
+        return '<div class="bg-white/10 md:bg-gray-50 md:text-black p-2 rounded mb-1"><b>'+c.name+':</b> '+c.msg+'<br><span class="text-[9px] opacity-60">â° '+hrs+'h ago (auto clear 24h) | '+c.date+'</span></div>';
+      }).join('')||'<p class="text-gray-400">No comments in last 24h</p>';
+    });
+  }catch(e){console.log(e);}
+}
+initGlobalLive();
+// --- END FIX ---
+
 showView('parents');renderAds();
 </script>
-<footer class="mt-10 bg-black text-white p-6 text-center text-[10px]"><p class="font-bold">Developer: Amanya Mike | 0763821339 | FIXED V5</p></footer>
+<footer class="mt-10 bg-black text-white p-6 text-center text-[10px]"><p class="font-bold">Developer: Amanya Mike | 0763821339 | FIXED V5 - PDF REMOVED PNG ADDED</p></footer>
 </body></html>

@@ -112,7 +112,7 @@ const storage=getStorage(app);
 const messaging=getMessaging(app);
 Notification.requestPermission().then(async()=>{
   try{
-    const token=await getToken(messaging,{vapidKey:"BJp3wZyK8n5Qm_YourVapidKey_Here_Replace"});
+    const token=await getToken(messaging,{vapidKey:"BFG2Xm-olqzErk8lHPZphLsPL4M1GrSA5Bw66ycQ1TFfrTb1nhmlN6pPFdU4s0iu3vNrezSKJTUegpZY_94KG2c"});
     if(token){ await setDoc(doc(db,"parentTokens",token),{token:token,date:Date.now()}); }
   }catch(e){}
 });

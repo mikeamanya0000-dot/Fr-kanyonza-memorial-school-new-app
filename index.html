@@ -63,21 +63,20 @@ table{width:100%;border-collapse:collapse}th,td{padding:12px}
 <button type="submit" id="submitBtn" class="w-full bg-[#C1121F] text-white font-black py-4 rounded-2xl text-lg shadow-lg">SUBMIT & GET RECEIPT INSTANT</button>
 </form></div>
 <div class="bg-white rounded-[20px] shadow-xl p-5 mt-4 border-l-4 border-black"><h3 class="font-black">Send Comment to School</h3><input id="cName" placeholder="Your name" class="w-full p-3 border rounded-xl mb-2 mt-2"><textarea id="cMsg" placeholder="Write comment..." class="w-full p-3 border rounded-xl mb-2"></textarea><button id="commentBtn" onclick="sendComment()" class="w-full bg-black text-white py-3 rounded-xl font-bold">Send Comment</button><div id="cStatus" class="text-xs text-center mt-2 font-bold"></div></div>
-</div>
-<div id="view-adminLogin" class="hidden max-w-md mx-auto px-4 py-20"><div class="bg-white rounded-[20px] shadow-xl p-8 border-t-4 border-black"><h2 class="font-black text-xl text-center mb-2">ADMIN LOGIN</h2><input id="adminPass" type="password" placeholder="Enter Admin Password" class="w-full p-4 border rounded-xl bg-gray-50 mb-4"><button onclick="adminLogin()" class="w-full bg-black text-white font-bold py-4 rounded-xl">LOGIN</button><button onclick="showView('parents')" class="w-full mt-3 bg-gray-100 py-3 rounded-xl">Back</button></div></div>
+</div><div id="view-adminLogin" class="hidden max-w-md mx-auto px-4 py-20"><div class="bg-white rounded-[20px] shadow-xl p-8 border-t-4 border-black"><h2 class="font-black text-xl text-center mb-2">ADMIN LOGIN</h2><input id="adminPass" type="password" placeholder="Enter Admin Password" class="w-full p-4 border rounded-xl bg-gray-50 mb-4"><button onclick="adminLogin()" class="w-full bg-black text-white font-bold py-4 rounded-xl">LOGIN</button><button onclick="showView('parents')" class="w-full mt-3 bg-gray-100 py-3 rounded-xl">Back</button></div></div>
 <div id="view-admin" class="hidden max-w-7xl mx-auto px-3 py-6">
-<div class="flex flex-wrap gap-2 mb-4 justify-between"><h2 class="font-black text-xl">ADMIN DASHBOARD <span id="liveCount" class="text-[#C1121F] text-sm"></span> <span id="offlineBadge" class="text-[9px] px-2 py-1 rounded-full bg-green-200 text-green-800 hidden">OFFLINE MODE</span></h2><div class="flex gap-2 flex-wrap">
+<div class="flex flex-wrap gap-2 mb-4 justify-between"><h2 class="font-black text-xl">ADMIN DASHBOARD <span id="liveCount" class="text-[#C1121F] text-sm"></span> <span id="offlineBadge" class="text-[9px] px-2 py-1 rounded-full bg-green-200 text-green-800 hidden">OFFLINE MODE - NO STORAGE</span></h2><div class="flex gap-2 flex-wrap">
 <select id="sortClass" onchange="renderAdmin()" class="p-2 border rounded-full text-xs font-bold"><option value="ALL">All Classes</option><option>S.1</option><option>S.2</option><option>S.3</option><option>S.4</option><option>S.5</option><option>S.6</option></select>
 <button onclick="exportExcel()" class="px-4 py-2 bg-green-600 text-white rounded-full text-xs font-bold">Excel</button>
 <button onclick="showView('adManager')" class="px-4 py-2 bg-black text-white rounded-full text-xs font-bold">+ Advert</button>
 <button onclick="showView('parents')" class="px-4 py-2 bg-gray-200 rounded-full text-xs">Logout</button></div></div>
-<div class="bg-white rounded-2xl shadow p-4 mb-4 border-l-4 border-[#C1121F]"><h3 class="font-black text-xs mb-2 text-[#C1121F]">Quick Advert - Photo Only (Auto 24h)</h3><div class="flex gap-2"><input id="adTitleQuick" placeholder="Title" class="p-2 border rounded-xl text-xs flex-1"><input id="adFileQuick" type="file" accept="image/*" class="text-xs flex-1"><button id="adQuickBtn" onclick="addQuickAdvert()" class="px-4 py-2 bg-black text-white rounded-full text-xs font-bold">UPLOAD LIVE</button></div><div id="adQuickPrev" class="text-[10px] font-bold mt-2 text-center"></div></div>
+<div class="bg-white rounded-2xl shadow p-4 mb-4 border-l-4 border-[#C1121F]"><h3 class="font-black text-xs mb-2 text-[#C1121F]">Quick Advert - YouTube Only (No Storage)</h3><div class="flex gap-2"><input id="adTitleQuick" placeholder="Title" class="p-2 border rounded-xl text-xs flex-1"><input id="adFileQuick" placeholder="Paste YouTube Link" class="p-2 border rounded-xl text-xs flex-1"><button id="adQuickBtn" onclick="addQuickAdvert()" class="px-4 py-2 bg-black text-white rounded-full text-xs font-bold">UPLOAD LIVE</button></div><div id="adQuickPrev" class="text-[10px] font-bold mt-2 text-center"></div></div>
 <div class="bg-gradient-to-r from-blue-900 to-black rounded-2xl p-4 mb-4 text-white"><button onclick="document.getElementById('commentsBox').classList.toggle('hidden')" class="w-full flex justify-between font-black text-sm">Parents Comments - 24h (<span id="commentCount">0</span>)</button><div id="commentsBox" class="hidden mt-3"><div id="commentsList" class="text-xs space-y-2 max-h-[300px] overflow-auto"></div></div></div>
 <div class="bg-white rounded-2xl shadow overflow-hidden" style="overflow-x:auto;"><div style="min-width:900px;"><table class="w-full text-xs"><thead class="bg-black text-white"><tr><th class="p-3 text-left">Student</th><th class="p-3">Class</th><th class="p-3">Bank Code</th><th class="p-3">Parent</th><th class="p-3">Fees</th><th class="p-3">Action</th></tr></thead><tbody id="adminTbody"></tbody></table></div></div>
 </div>
-<div id="view-adManager" class="hidden max-w-2xl mx-auto px-4 py-10"><div class="bg-white rounded-[20px] shadow-xl p-6 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-4">ADVERT TOOL - Admin (YouTube Fixed)</h2><input id="adTitle" placeholder="Title" class="w-full p-3 border rounded-xl mb-2"><textarea id="adDesc" placeholder="Description" class="w-full p-3 border rounded-xl mb-2"></textarea><select id="adType" onchange="toggleAdInput()" class="w-full p-3 border rounded-xl mb-2"><option value="photo">photo</option><option value="video">video</option><option value="music">music</option><option value="function">function</option></select>
-<div id="photoBox" class="border-2 border-dashed rounded-xl p-3 text-center mb-4"><p class="text-[10px] font-bold mb-2">PHOTO ONLY - No card needed</p><div class="flex gap-2 justify-center"><label class="px-4 py-2 bg-black text-white rounded-full text-[11px] cursor-pointer">BROWSE<input type="file" accept="image/*" class="hidden" onchange="previewAdFile(this)"></label><label class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-[11px] cursor-pointer">CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewAdFile(this)"></label></div><div id="adPrev" class="text-[10px] font-bold mt-2 text-center"></div></div>
-<div id="youtubeBox" class="hidden mb-4 border-2 border-red-200 rounded-xl p-3 bg-red-50"><p class="text-[10px] font-black text-[#C1121F] mb-2">YOUTUBE LINK MODE - 0MB, No Firebase Storage!</p><input id="adYoutubeLink" placeholder="Paste YouTube Link - e.g. https://youtu.be/xxxxx" class="w-full p-3 border rounded-xl mb-2"><p class="text-[9px] text-gray-600">Steps: Upload video to YouTube App as UNLISTED > Copy link > Paste here</p><div id="youtubePrev" class="mt-2 text-center"></div></div>
+<div id="view-adManager" class="hidden max-w-2xl mx-auto px-4 py-10"><div class="bg-white rounded-[20px] shadow-xl p-6 border-l-4 border-[#C1121F]"><h2 class="font-black text-lg mb-4">ADVERT TOOL - YouTube Only (No Storage)</h2><input id="adTitle" placeholder="Title" class="w-full p-3 border rounded-xl mb-2"><textarea id="adDesc" placeholder="Description" class="w-full p-3 border rounded-xl mb-2"></textarea><select id="adType" onchange="toggleAdInput()" class="w-full p-3 border rounded-xl mb-2"><option value="photo">photo</option><option value="video">video</option><option value="music">music</option><option value="function">function</option></select>
+<div id="photoBox" class="border-2 border-dashed rounded-xl p-3 text-center mb-4"><p class="text-[10px] font-bold mb-2">PHOTO COMPRESSED - NO STORAGE</p><div class="flex gap-2 justify-center"><label class="px-4 py-2 bg-black text-white rounded-full text-[11px] cursor-pointer">BROWSE<input type="file" accept="image/*" class="hidden" onchange="previewAdFile(this)"></label><label class="px-4 py-2 bg-[#C1121F] text-white rounded-full text-[11px] cursor-pointer">CAMERA<input type="file" accept="image/*" capture="environment" class="hidden" onchange="previewAdFile(this)"></label></div><div id="adPrev" class="text-[10px] font-bold mt-2 text-center"></div></div>
+<div id="youtubeBox" class="hidden mb-4 border-2 border-red-200 rounded-xl p-3 bg-red-50"><p class="text-[10px] font-black text-[#C1121F] mb-2">YOUTUBE LINK MODE - 0MB, No Storage!</p><input id="adYoutubeLink" placeholder="Paste YouTube Link - e.g. https://youtu.be/xxxxx" class="w-full p-3 border rounded-xl mb-2"><p class="text-[9px] text-gray-600">Steps: Upload video to YouTube App as UNLISTED > Copy link > Paste here</p><div id="youtubePrev" class="mt-2 text-center"></div></div>
 <button id="adBtn" onclick="addAdvert()" class="w-full bg-[#C1121F] text-white font-bold py-3 rounded-xl">UPLOAD ADVERT</button><button onclick="showView('admin')" class="w-full mt-2 bg-gray-100 py-3 rounded-xl">Back</button></div></div>
 <div id="receiptModal" class="hidden fixed inset-0 bg-black/60 z-[100] flex items-center justify-center p-4"><div class="bg-white rounded-2xl max-w-md w-full p-6 relative"><button onclick="closeReceipt()" class="absolute top-3 right-3 bg-gray-100 w-8 h-8 rounded-full">X</button><div id="receiptContent"></div><button onclick="closeReceipt()" class="w-full mt-4 bg-[#C1121F] text-white py-3 rounded-xl font-bold">Done</button><div id="saveStatus" class="mt-2 text-center text-xs"></div></div></div>
 <div id="studentModal" class="hidden fixed inset-0 bg-black/70 z-[110] flex items-center justify-center p-3"><div class="bg-white rounded-2xl max-w-lg w-full p-4 max-h-[85vh] overflow-y-auto relative">
@@ -87,29 +86,61 @@ table{width:100%;border-collapse:collapse}th,td{padding:12px}
 </div></div><script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {initializeFirestore,persistentLocalCache,persistentMultipleTabManager,collection,addDoc,onSnapshot,doc,setDoc,getDocs,deleteDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import {getStorage,ref,uploadString,getDownloadURL} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+import {getStorage} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 import {getMessaging,getToken,onMessage} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging.js";
 const firebaseConfig={apiKey:"AIzaSyDhkpS7hG9QGqXC2xs-wf9G2p1X3Y8",authDomain:"fr-kanyoza-2026-new.firebaseapp.com",projectId:"fr-kanyoza-2026-new",storageBucket:"fr-kanyoza-2026-new.firebasestorage.app",messagingSenderId:"1054111043868",appId:"1:1054111043868:web:5283f3228f3b7f816c6ad9"};
 const app=initializeApp(firebaseConfig);
 const db=initializeFirestore(app,{localCache:persistentLocalCache({tabManager:persistentMultipleTabManager()})});
-const storage=getStorage(app);
 const messaging=getMessaging(app);
 if('Notification' in window){
  Notification.requestPermission().then(async()=>{
-  try{
-    const token=await getToken(messaging,{vapidKey:"BFG2Xm-olqzErk8lHPZphLsPL4M1GrSA5Bw66ycQ1TFfrTb1nhmlN6pPFdU4s0iu3vNrezSKJTUegpZY_94KG2c"});
-    if(token){ await setDoc(doc(db,"parentTokens",token),{token:token,date:Date.now()}); }
-  }catch(e){}
+  try{ const token=await getToken(messaging,{vapidKey:"BFG2Xm-olqzErk8lHPZphLsPL4M1GrSA5Bw66ycQ1TFfrTb1nhmlN6pPFdU4s0iu3vNrezSKJTUegpZY_94KG2c"}); if(token){ await setDoc(doc(db,"parentTokens",token),{token:token,date:Date.now()}); } }catch(e){}
  });
  onMessage(messaging,(payload)=>{ showToast((payload.notification?.title||"New Update")+": "+(payload.notification?.body||"")); });
 }
 window.addEventListener('online',()=>{document.getElementById('offlineBadge')?.classList.add('hidden'); showToast('Back Online - Syncing...');});
-window.addEventListener('offline',()=>{document.getElementById('offlineBadge')?.classList.remove('hidden'); showToast('Offline Mode - Saving locally');});
+window.addEventListener('offline',()=>{document.getElementById('offlineBadge')?.classList.remove('hidden'); showToast('Offline Mode - No Storage');});
 if(!navigator.onLine){ setTimeout(()=>document.getElementById('offlineBadge')?.classList.remove('hidden'),500); }
 let registrations=[];let advertsLocal=JSON.parse(localStorage.getItem('fk_adverts')||'[]');let adFileDataUrl="";let certFiles={};let currentViewedId=null;
 function showToast(m){const t=document.getElementById('toast');document.getElementById('toastMsg').innerText=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),4000);}
-window.previewFile=function(input,prevId,key){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{certFiles[key]=e.target.result;document.getElementById(prevId).innerText="OK "+f.name;};r.readAsDataURL(f);};
-window.previewAdFile=function(i){const f=i.files[0];if(!f)return;if(f.size>2*1024*1024){showToast('Photo >2MB too big!');return;}const r=new FileReader();r.onload=e=>{adFileDataUrl=e.target.result;document.getElementById('adPrev').innerHTML='<b style="color:green;">OK '+f.name+' Ready</b><br><img src="'+e.target.result+'" style="width:100%;max-height:150px;border-radius:10px;margin-top:6px">';};r.readAsDataURL(f);};
+function compressImage(dataUrl,maxW=700,quality=0.5){
+  return new Promise(resolve=>{
+    const img=new Image();
+    img.onload=()=>{
+      const canvas=document.createElement('canvas');
+      let w=img.width,h=img.height;
+      if(w>maxW){ h=(maxW/w)*h; w=maxW; }
+      canvas.width=w; canvas.height=h;
+      canvas.getContext('2d').drawImage(img,0,0,w,h);
+      resolve(canvas.toDataURL('image/jpeg',quality));
+    };
+    img.src=dataUrl;
+  });
+}
+window.previewFile=async function(input,prevId,key){
+  const f=input.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=async e=>{
+    let data=e.target.result;
+    if(data.startsWith('data:image')){
+      data=await compressImage(data,600,0.4);
+    }
+    certFiles[key]=data;
+    document.getElementById(prevId).innerText="OK "+f.name+" compressed "+Math.round(data.length/1024)+"KB";
+  };
+  r.readAsDataURL(f);
+};
+window.previewAdFile=async function(i){
+  const f=i.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=async e=>{
+    let data=e.target.result;
+    if(data.startsWith('data:image')){ data=await compressImage(data,700,0.5); }
+    adFileDataUrl=data;
+    document.getElementById('adPrev').innerHTML='<b style="color:green;">OK '+f.name+' '+Math.round(data.length/1024)+'KB</b><br><img src="'+data+'" style="width:100%;max-height:150px;border-radius:10px;margin-top:6px">';
+  };
+  r.readAsDataURL(f);
+};
 window.toggleAdInput=function(){
   let type=document.getElementById('adType').value;
   if(type==='video'||type==='music'||type==='function'){
@@ -124,7 +155,7 @@ function extractYoutubeId(url){ if(!url) return null; let m=url.match(/(?:youtu\
 document.addEventListener('input',(e)=>{
  if(e.target.id==='adYoutubeLink'){
    let vid=extractYoutubeId(e.target.value.trim());
-   if(vid){ document.getElementById('youtubePrev').innerHTML='<iframe width="100%" height="200" src="https://www.youtube.com/embed/'+vid+'" frameborder="0" allowfullscreen style="border-radius:10px"></iframe><p class="text-[10px] text-green-600 font-bold mt-1">✓ Video ready</p>'; }
+   if(vid){ document.getElementById('youtubePrev').innerHTML='<iframe width="100%" height="200" src="https://www.youtube.com/embed/'+vid+'" frameborder="0" allowfullscreen style="border-radius:10px"></iframe><p class="text-[10px] text-green-600 font-bold mt-1">OK Video ready</p>'; }
  }
 });
 window.showView=function(v){['view-parents','view-adminLogin','view-admin','view-adManager'].forEach(id=>{document.getElementById(id).classList.add('hidden');});const t=document.getElementById('view-'+v);if(t){t.classList.remove('hidden');window.scrollTo(0,0);}if(v==='admin')loadAdmin();try{renderAds();}catch(e){}};
@@ -142,7 +173,8 @@ window.renderAds=function(){
    if(a.youtubeUrl){
      let vid=extractYoutubeId(a.youtubeUrl);
      if(vid){ media='<iframe width="100%" height="180" src="https://www.youtube.com/embed/'+vid+'" frameborder="0" allowfullscreen style="border-radius:10px;margin-top:6px"></iframe>'; }
-     else{ media='<a href="'+a.youtubeUrl+'" target="_blank" class="text-[10px] underline text-yellow-300">'+a.youtubeUrl+'</a>'; }
+     else if(a.youtubeUrl.startsWith('http')){ media='<a href="'+a.youtubeUrl+'" target="_blank" class="text-[10px] underline text-yellow-300">'+a.youtubeUrl+'</a>'; }
+     else{ media='<img src="'+a.youtubeUrl+'" style="width:100%;border-radius:10px;margin-top:6px;max-height:200px;object-fit:cover">'; }
    } else if(a.fileUrl){
      if(a.fileUrl.startsWith('data:image')||a.type==="photo"){ media='<img src="'+a.fileUrl+'" style="width:100%;border-radius:10px;margin-top:6px;max-height:200px;object-fit:cover">'; }
    }
@@ -161,45 +193,41 @@ window.addAdvert=async function(){
  btn.innerText='UPLOADING...'; btn.disabled=true;
  let adv={title:title,desc:desc,type:type,youtubeUrl:ytLink||"",fileUrl:adFileDataUrl||"",date:new Date().toLocaleString(),createdAt:Date.now()};
  try{
-   if(type==='photo' && adFileDataUrl && adFileDataUrl.startsWith('data:')){
-     try{ const storageRef=ref(storage,'adverts/'+Date.now()+'_photo'); await uploadString(storageRef,adFileDataUrl,'data_url'); adv.fileUrl=await getDownloadURL(storageRef); }catch(e){}
-   }
    if(navigator.onLine){ await addDoc(collection(db,'adverts'),adv); }
    advertsLocal.unshift(adv); saveAdvertsToAllKeys(advertsLocal);
-   showToast('Advert LIVE! No Blaze - YouTube mode!');
- }catch(e){ advertsLocal.unshift(adv); saveAdvertsToAllKeys(advertsLocal); showToast('Saved locally - will sync'); }
+   showToast('Advert LIVE! No Storage!');
+ }catch(e){ advertsLocal.unshift(adv); saveAdvertsToAllKeys(advertsLocal); showToast('Saved locally'); }
  adFileDataUrl=""; document.getElementById('adTitle').value=""; document.getElementById('adDesc').value=""; document.getElementById('adYoutubeLink').value=""; document.getElementById('youtubePrev').innerHTML=""; document.getElementById('adPrev').innerHTML="";
  renderAds(); btn.innerText='UPLOAD ADVERT'; btn.disabled=false; setTimeout(()=>showView('admin'),800);
 };
 window.addQuickAdvert=async function(){
  const t=document.getElementById('adTitleQuick').value.trim();
- const f=document.getElementById('adFileQuick').files[0];
- if(!t &&!f) return showToast('Add Title or File');
+ const yt=document.getElementById('adFileQuick').value.trim();
+ if(!t &&!yt) return showToast('Add Title or YouTube link');
  const btn=document.getElementById('adQuickBtn'); btn.innerText='UPLOADING...'; btn.disabled=true;
- let url=""; if(f){ url=await new Promise(res=>{ const r=new FileReader(); r.onload=e=>res(e.target.result); r.readAsDataURL(f); }); }
- let finalUrl=url; try{ if(url&&url.startsWith('data:')){ const storageRef=ref(storage,'adverts/quick_'+Date.now()); await uploadString(storageRef,url,'data_url'); finalUrl=await getDownloadURL(storageRef);} }catch(e){}
- const adv={title:t||"Live Update",desc:"",type:"photo",fileUrl:finalUrl,date:new Date().toLocaleString(),createdAt:Date.now()};
+ const adv={title:t||"Live Update",desc:"",type:yt?"video":"photo",youtubeUrl:yt,fileUrl:"",date:new Date().toLocaleString(),createdAt:Date.now()};
  try{ if(navigator.onLine) await addDoc(collection(db,'adverts'),adv); }catch(e){}
  advertsLocal.unshift(adv); saveAdvertsToAllKeys(advertsLocal); renderAds();
  document.getElementById('adTitleQuick').value=""; document.getElementById('adFileQuick').value="";
- btn.innerText='UPLOAD LIVE'; btn.disabled=false; showToast('Photo LIVE! 24h');
+ btn.innerText='UPLOAD LIVE'; btn.disabled=false; showToast('Live! No Storage');
 };
 window.sendComment=async function(){
  const msg=document.getElementById('cMsg').value.trim(); if(!msg) return showToast('Write comment first');
  const btn=document.getElementById('commentBtn'); btn.innerText='SENDING...'; btn.disabled=true;
  const c={name:document.getElementById('cName').value||'Parent',msg,date:new Date().toLocaleString(),createdAt:Date.now()};
- try{ if(navigator.onLine) await addDoc(collection(db,'comments'),c); document.getElementById('cStatus').innerHTML='<div style="background:#dcfce7;color:green;padding:12px;border-radius:12px;font-weight:900;text-align:center;">Comment Sent Success!</div>'; document.getElementById('cMsg').value=''; showToast('Comment Sent!'); }catch(e){ showToast('Offline - saved'); }
+ try{ if(navigator.onLine) await addDoc(collection(db,'comments'),c); document.getElementById('cStatus').innerHTML='<div style="background:#dcfce7;color:green;padding:12px;border-radius:12px;font-weight:900;text-align:center;">Comment Sent Success!</div>'; document.getElementById('cMsg').value=''; showToast('Comment Sent!'); }catch(e){ showToast('Offline'); }
  btn.innerText='Send Comment'; btn.disabled=false;
 };
 function calcTotal(){let t=0;document.querySelectorAll('.feeChk:checked').forEach(c=>t+=parseInt(c.value));document.getElementById('totalPay').innerText=t.toLocaleString()+' UGX';}document.querySelectorAll('.feeChk').forEach(c=>c.addEventListener('change',calcTotal));calcTotal();
 document.getElementById('regForm').addEventListener('submit',async function(e){
  e.preventDefault();const btn=document.getElementById('submitBtn');if(btn.disabled)return;btn.disabled=true;btn.innerText='SAVING...';
  const fd=new FormData(this);let total=0;const fees=[];document.querySelectorAll('.feeChk:checked').forEach(c=>{fees.push(c.dataset.name);total+=parseInt(c.value);});
- const reg={id:'FK'+Date.now(),surname:fd.get('surname'),given:fd.get('given'),other:fd.get('other'),dob:fd.get('dob'),gender:fd.get('gender'),class:fd.get('class'),bankCode:fd.get('bankCode'),parentName:fd.get('parentName'),phone:fd.get('phone'),email:fd.get('email'),nin:fd.get('nin'),fees,total,requirements:fees.join(', '),payMethod:document.getElementById('payMethod').value,momo:document.getElementById('momoNumber').value,cert1:certFiles.cert1||'',cert2:certFiles.cert2||'',cert3:certFiles.cert3||'',date:new Date().toLocaleString(),createdAt:Date.now()};
+ let bankCode = 'FK2027-'+Date.now().toString().slice(-4);
+ const reg={id:'FK'+Date.now(),surname:fd.get('surname'),given:fd.get('given'),other:fd.get('other'),dob:fd.get('dob'),gender:fd.get('gender'),class:fd.get('class'),bankCode:bankCode,parentName:fd.get('parentName'),phone:fd.get('phone'),email:fd.get('email'),nin:fd.get('nin'),fees,total,requirements:fees.join(', '),payMethod:document.getElementById('payMethod').value,momo:document.getElementById('momoNumber').value,cert1:certFiles.cert1||'',cert2:certFiles.cert2||'',cert3:certFiles.cert3||'',date:new Date().toLocaleString(),createdAt:Date.now()};
  document.getElementById('receiptContent').innerHTML='<div class="text-center p-2"><div class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-black mx-auto mb-2">FK</div><h3 class="font-black">RECEIPT - FR KANYONZA 2027</h3><p class="font-bold mt-2">'+reg.surname+' '+reg.given+' - '+reg.class+'</p><p class="font-black text-[#C1121F] text-lg">'+reg.bankCode+'</p><p class="font-black text-xl mt-2">'+total.toLocaleString()+' UGX</p><p class="text-[10px] mt-2 bg-gray-100 p-2 rounded">'+reg.requirements+'</p></div>';
  document.getElementById('receiptModal').classList.remove('hidden');
  let backup=JSON.parse(localStorage.getItem('fk_backup')||'[]');backup.unshift(reg);localStorage.setItem('fk_backup',JSON.stringify(backup));
- try{ if(navigator.onLine){ await addDoc(collection(db,'registrations'),reg); document.getElementById('saveStatus').innerText='Saved to Cloud + Local'; } else { document.getElementById('saveStatus').innerText='Saved locally - will sync'; } showToast('Saved - '+reg.bankCode); }catch(err){ document.getElementById('saveStatus').innerText='Saved locally'; }
+ try{ if(navigator.onLine){ await addDoc(collection(db,'registrations'),reg); document.getElementById('saveStatus').innerText='Saved to Cloud (No Storage) + Local'; } else { document.getElementById('saveStatus').innerText='Saved locally - will sync'; } showToast('Saved - '+reg.bankCode); }catch(err){ document.getElementById('saveStatus').innerText='Error: '+err.message; showToast(err.message); }
  this.reset();certFiles={};document.querySelectorAll('[id^=prev]').forEach(el=>el.innerText='');calcTotal();btn.disabled=false;btn.innerText='SUBMIT & GET RECEIPT INSTANT';
 });
 window.closeReceipt=function(){document.getElementById('receiptModal').classList.add('hidden');};
@@ -217,7 +245,7 @@ window.renderAdmin=function(){
   document.getElementById('liveCount').innerText='('+list.length+')';
   document.getElementById('adminTbody').innerHTML=list.map(r=>'<tr class="border-b hover:bg-gray-50"><td class="p-3"><b>'+r.surname+' '+r.given+'</b></td><td class="p-3 text-center font-bold">'+r.class+'</td><td class="p-3 font-black text-[#C1121F]">'+r.bankCode+'</td><td class="p-3">'+r.parentName+'<br><span class="text-[10px]">'+r.phone+'</span></td><td class="p-3">'+r.total.toLocaleString()+' UGX<br><span class="text-[8px] bg-blue-100 text-blue-700 px-2 py-1 rounded-full">'+(r.requirements||'').substring(0,30)+'</span></td><td class="p-3"><div class="flex flex-col gap-1"><button onclick="viewStudent(\''+r.id+'\')" class="bg-black text-white px-3 py-1.5 rounded-full text-[10px] font-bold">VIEW ALL</button><button onclick="deleteOneRegistration(\''+r.id+'\', \''+r.bankCode+'\')" class="bg-[#C1121F] text-white px-3 py-1.5 rounded-full text-[10px] font-bold">DELETE</button></div></td></tr>').join('')||'<tr><td colspan=6 class="p-10 text-center text-gray-400">No data</td></tr>';
 };
-window.viewStudent=function(id){const r=registrations.find(x=>x.id===id);if(!r)return;currentViewedId=id;function renderDoc(label,data){if(!data)return '<div class="bg-gray-100 p-2 rounded text-[10px]">'+label+': Not uploaded</div>';if(data.startsWith('data:application/pdf')||data.includes('pdf')){return '<div class="bg-gray-50 p-2 rounded"><b>'+label+':</b> <a href="'+data+'" target="_blank" style="color:#C1121F;font-weight:900;">View PDF</a><br><embed src="'+data+'" style="width:100%;height:120px;margin-top:6px;border-radius:8px"></div>';}else{return '<div class="bg-gray-50 p-2 rounded"><b>'+label+':</b><br><img src="'+data+'" style="width:100%;max-height:140px;object-fit:cover;border-radius:8px;margin-top:6px"><br><a href="'+data+'" download="'+label+'_'+r.bankCode+'" style="color:#2563eb;font-weight:900;font-size:10px;">Download</a></div>';}}document.getElementById('studentDetails').innerHTML='<div><div class="bg-gradient-to-r from-black to-[#C1121F] text-white p-4 rounded-xl text-center"><p class="font-black text-lg">'+r.surname+' '+r.given+' '+(r.other||'')+'</p><p class="font-black text-yellow-300">'+r.bankCode+' - '+r.class+'</p><p class="text-[10px]">'+r.dob+' | '+r.gender+'</p></div><div class="grid grid-cols-2 gap-2 text-[12px] mt-2"><div class="bg-gray-50 p-2 rounded">Parent: <b>'+r.parentName+'</b></div><div class="bg-gray-50 p-2 rounded">Phone: <b>'+r.phone+'</b></div><div class="bg-blue-50 p-2 rounded col-span-2">Total: <b class="text-blue-700">'+r.total.toLocaleString()+' UGX</b></div><div class="bg-yellow-50 p-2 rounded col-span-2">Fees: '+r.requirements+'</div><div class="bg-gray-50 p-2 rounded col-span-2">Pay: '+r.payMethod+' - '+r.momo+'</div><div class="bg-gray-50 p-2 rounded">Email: '+(r.email||'N/A')+'</div><div class="bg-gray-50 p-2 rounded">NIN: '+(r.nin||'N/A')+'</div></div><div class="mt-3"><h3 class="font-black text-[#C1121F] mb-2">BROWSED DOCUMENTS</h3><div class="grid gap-2">'+renderDoc('Birth Certificate',r.cert1)+renderDoc('P7/S4 Testimonial',r.cert2)+renderDoc('Parent NIN',r.cert3)+'</div></div></div>';document.getElementById('studentModal').classList.remove('hidden');};
+window.viewStudent=function(id){const r=registrations.find(x=>x.id===id);if(!r)return;currentViewedId=id;function renderDoc(label,data){if(!data)return '<div class="bg-gray-100 p-2 rounded text-[10px]">'+label+': Not uploaded</div>';if(data.startsWith('data:application/pdf')||data.includes('pdf')||data.includes('.pdf')){return '<div class="bg-gray-50 p-2 rounded"><b>'+label+':</b> <a href="'+data+'" target="_blank" style="color:#C1121F;font-weight:900;">View PDF</a><br><embed src="'+data+'" style="width:100%;height:120px;margin-top:6px;border-radius:8px"></div>';}else{return '<div class="bg-gray-50 p-2 rounded"><b>'+label+':</b><br><img src="'+data+'" style="width:100%;max-height:140px;object-fit:cover;border-radius:8px;margin-top:6px"><br><a href="'+data+'" download="'+label+'_'+r.bankCode+'" style="color:#2563eb;font-weight:900;font-size:10px;">Download</a></div>';}}document.getElementById('studentDetails').innerHTML='<div><div class="bg-gradient-to-r from-black to-[#C1121F] text-white p-4 rounded-xl text-center"><p class="font-black text-lg">'+r.surname+' '+r.given+' '+(r.other||'')+'</p><p class="font-black text-yellow-300">'+r.bankCode+' - '+r.class+'</p><p class="text-[10px]">'+r.dob+' | '+r.gender+'</p></div><div class="grid grid-cols-2 gap-2 text-[12px] mt-2"><div class="bg-gray-50 p-2 rounded">Parent: <b>'+r.parentName+'</b></div><div class="bg-gray-50 p-2 rounded">Phone: <b>'+r.phone+'</b></div><div class="bg-blue-50 p-2 rounded col-span-2">Total: <b class="text-blue-700">'+r.total.toLocaleString()+' UGX</b></div><div class="bg-yellow-50 p-2 rounded col-span-2">Fees: '+r.requirements+'</div><div class="bg-gray-50 p-2 rounded col-span-2">Pay: '+r.payMethod+' - '+r.momo+'</div><div class="bg-gray-50 p-2 rounded">Email: '+(r.email||'N/A')+'</div><div class="bg-gray-50 p-2 rounded">NIN: '+(r.nin||'N/A')+'</div></div><div class="mt-3"><h3 class="font-black text-[#C1121F] mb-2">BROWSED DOCUMENTS (Compressed)</h3><div class="grid gap-2">'+renderDoc('Birth Certificate',r.cert1)+renderDoc('P7/S4 Testimonial',r.cert2)+renderDoc('Parent NIN',r.cert3)+'</div></div></div>';document.getElementById('studentModal').classList.remove('hidden');};
 window.saveCurrentView=async function(){const r=registrations.find(x=>x.id===currentViewedId);try{if(navigator.onLine) await addDoc(collection(db,'browsedFiles'),{type:'manual_save_view',studentId:r.id,bankCode:r.bankCode,studentName:r.surname+' '+r.given,viewedAt:Date.now(),date:new Date().toLocaleString()});showToast('Saved!');}catch(e){}};
 window.exportExcel=function(){if(!registrations.length)return;let csv='Surname,Given,Class,Bank,Parent,Phone,Total,Requirements,Email,NIN,Date\n';registrations.forEach(r=>{csv+='"'+r.surname+'","'+r.given+'","'+r.class+'","'+r.bankCode+'","'+r.parentName+'","'+r.phone+'","'+r.total+'","'+r.requirements+'","'+r.email+'","'+r.nin+'","'+r.date+'"\n';});const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='kanyonza-full.csv';a.click();};
 window.downloadSingleExcel=function(){const r=registrations.find(x=>x.id===currentViewedId);if(!r)return;let csv='Surname,Given,Other,Class,BankCode,DOB,Gender,Parent,Phone,Email,NIN,Total,Requirements,PayMethod,MoMo,Date\n';csv+='"'+r.surname+'","'+r.given+'","'+(r.other||'')+'","'+r.class+'","'+r.bankCode+'","'+r.dob+'","'+r.gender+'","'+r.parentName+'","'+r.phone+'","'+(r.email||'')+'","'+(r.nin||'')+'","'+r.total+'","'+r.requirements+'","'+r.payMethod+'","'+r.momo+'","'+r.date+'"\n';const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download=r.bankCode+'_'+r.surname+'.csv';a.click();showToast('Excel - '+r.bankCode);};
@@ -253,8 +281,8 @@ if('serviceWorker' in navigator){
 <footer class="mt-10 bg-black text-white p-6 text-center border-t-4 border-[#C1121F]">
 <p class="font-black text-[11px]">Fr Kanyonza Memorial School - Hima | 2027 | INSPIRING EXCELLENCE</p>
 <p class="text-[10px] mt-2">School Owner: <b class="text-yellow-300">JEROME TWIMUKYE</b> - 0761 782 848 / 0755 414 141</p>
-<p class="font-black text-[#C1121F] text-[11px] mt-2">Developed by AMANYA MIKE ARAALI - FIXED v5 YouTube No-Blaze</p>
+<p class="font-black text-[#C1121F] text-[11px] mt-2">Developed by AMANYA MIKE ARAALI - PURE NO STORAGE v6</p>
 <p class="text-[10px] font-bold">0763821339 0750398757 | mikeamanya0000@gmail.com</p>
-<p class="text-[8px] mt-2 opacity-60">Offline Ready | YouTube Video Mode | 24h Auto Clear | Notifications | All Tabs Active</p>
+<p class="text-[8px] mt-2 opacity-60">Offline Ready | YouTube No-Storage | Compressed Photos 100KB | 24h Auto Clear</p>
 </footer>
 </body></html>

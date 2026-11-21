@@ -3,122 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MICLARA WAKE UP - 5AM</title>
+<title>Our Family - Template Final For Sale</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#00264d;color:#fff;min-height:100vh;text-align:center;padding:20px}
-h1{font-size:42px;color:#ffe600;margin-top:10px}
-.clock{font-size:80px;font-weight:bold;margin:15px 0;color:#00ff88;text-shadow:0 0 20px #00ff88}
-.date{font-size:20px;color:#fff}
-.photo-box{width:200px;height:200px;margin:15px auto;border-radius:50%;border:5px solid #fff;overflow:hidden;box-shadow:0 0 0 4px #00bfff,0 0 30px #00bfff;background:#fff}
-.photo-box img{width:100%;height:100%;object-fit:cover}
-.alarm-box{background:#fff;color:#00264d;padding:20px;border-radius:20px;margin:20px auto;max-width:500px;box-shadow:0 0 30px #00bfff}
-button{border:none;cursor:pointer;font-weight:bold;border-radius:30px;padding:16px 28px;font-size:18px;margin:8px}
-.btn-green{background:#00c853;color:#fff}
-.btn-red{background:#ff0000;color:#fff;font-size:20px;padding:18px 40px}
-.btn-blue{background:#007bff;color:#fff}
-.status{background:#00264d;color:#00ff88;padding:12px;border-radius:12px;margin:12px 0}
-.big-alarm{display:none;background:#ff0000;color:#fff;padding:25px;border-radius:20px;font-size:30px;font-weight:bold;animation:blink 1s infinite}
-@keyframes blink{50%{background:#ffe600;color:#000}}
+:root{--blue:#0a66ff;--cloudy:#0f172a;--cloudy2:#1e293b;--white:#f8fafc;--red:#ef4444;--black:#020617;--grey:#94a3b8;--green:#22c55e}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
+body{background:linear-gradient(180deg,var(--cloudy),var(--cloudy2));color:var(--white);min-height:100vh}
+header{background:var(--black);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--blue)}
+.nav{display:flex;gap:8px;padding:12px 20px;background:var(--cloudy2);position:sticky;top:0;z-index:10;overflow:auto}
+.tab{padding:10px 18px;border-radius:24px;border:1px solid #334155;color:var(--grey);cursor:pointer;background:var(--black);font-weight:600;white-space:nowrap}
+.tab.active{background:var(--blue);color:#fff}
+.tab.emergency{border-color:var(--red);color:var(--red)} .tab.emergency.active{background:var(--red);color:#fff}
+.subNav{display:flex;gap:8px;padding:10px 20px;background:var(--cloudy);overflow:auto}
+.subTab{padding:8px 16px;border-radius:20px;background:var(--cloudy2);border:1px solid #334155;color:var(--grey);cursor:pointer;white-space:nowrap}
+.subTab.active{background:var(--white);color:var(--black)}
+.auntTabs{display:flex;gap:8px;padding:12px 20px;background:var(--black);overflow:auto;border-bottom:1px solid #1e293b;align-items:center}
+.auntTab{padding:10px 16px;border-radius:20px;background:#1e293b;border:1px dashed var(--grey);color:var(--grey);cursor:pointer;font-size:12px;white-space:nowrap}
+.auntTab.active{background:var(--blue);color:#fff;border-style:solid;border-color:var(--blue)}
+.auntTab.locked{border-color:var(--green);color:var(--green)} .auntTab.locked.active{background:var(--green);color:#000}
+.plusTab{padding:0 14px;border-radius:50%;background:var(--blue);color:#fff;cursor:pointer;font-weight:900;border:none;min-width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:18px}
+#content{max-width:1300px;margin:auto;padding:16px;display:grid;grid-template-columns:1fr 340px;gap:16px}
+@media(max-width:900px){#content{grid-template-columns:1fr}}
+.card{background:var(--cloudy2);border-radius:20px;padding:18px;margin-bottom:14px;border:1px solid #334155}
+.card h3{color:var(--blue);margin-bottom:10px;font-size:15px}
+.photoArea{width:100%;min-height:200px;background:#0f172a;border:2px dashed var(--blue);border-radius:14px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:6px}
+.photoArea span{font-size:11px;color:var(--grey);text-align:center;z-index:1;pointer-events:none;padding:10px}
+.photoArea.passport{width:150px;height:180px;min-height:180px;border:2px solid var(--red);border-radius:10px}
+.photoArea img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0f172a;z-index:2}
+.photoArea input{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3}
+.inputRow{display:grid;grid-template-columns:1fr 140px 140px;gap:8px;margin-bottom:8px}
+@media(max-width:600px){.inputRow{grid-template-columns:1fr}}
+.inputRow input{padding:11px;border-radius:10px;border:1px solid #334155;background:var(--black);color:#fff;font-size:13px}
+.textArea{width:100%;min-height:160px;padding:14px;border-radius:14px;border:1px solid #334155;background:var(--black);color:#fff;resize:vertical;font-size:13px;line-height:1.5}
+.childCard{background:var(--black);border-radius:12px;padding:12px;margin:8px 0;border:1px solid #1e293b}
+.childHead{display:grid;grid-template-columns:28px 1fr 115px 125px 42px;gap:6px;align-items:center}
+@media(max-width:600px){.childHead{grid-template-columns:28px 1fr}}
+.childHead input{padding:8px;border:none;border-bottom:1px solid var(--blue);background:transparent;color:#fff;font-size:12px}
+.grandChildren{margin-left:20px;border-left:3px solid var(--green);padding-left:10px;margin-top:8px}
+.btn{padding:9px 15px;border-radius:20px;border:none;font-weight:700;cursor:pointer;font-size:11px}
+.btn-blue{background:var(--blue);color:#fff} .btn-green{background:var(--green);color:#000} .btn-red{background:var(--red);color:#fff}
+#loginScreen{position:fixed;inset:0;background:var(--black);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px}
+.loginCard{position:relative;background:#1e293b;border-radius:24px;padding:28px;width:100%;max-width:400px;border:1px solid #334155;text-align:center}
+.loginCard input{width:100%;padding:13px;margin:7px 0;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#fff;outline:none;font-size:14px}
+.gear{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:#0f172a;border:1px solid #334155;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5}
+.hidden{display:none}
+footer{background:var(--black);text-align:center;padding:14px;border-top:3px solid var(--blue);color:var(--grey);font-size:12px}
 </style>
 </head>
 <body>
-<h1>⏰ MICLARA WAKE UP ⏰</h1>
-<p>Wake up at 5:00 AM every morning</p>
-
-<!-- PHOTO OPTION - LIKE PC ALERT SITE -->
-<div class="photo-box"><img id="myPhoto" src="photo.jpg" alt="Your Photo"></div>
-<label style="background:#fff;color:#00264d;padding:12px 22px;border-radius:25px;cursor:pointer;font-weight:bold;display:inline-block;box-shadow:0 0 15px #00bfff">📸 CHOOSE MY PHOTO <input type="file" id="photoInput" accept="image/*" style="display:none"></label>
-<p id="photoStatus" style="font-size:13px;margin-top:8px;color:#aeeaff">Trying to load photo.jpg from folder... or click CHOOSE MY PHOTO</p>
-
-<div class="clock" id="clock">--:--:--</div>
-<div class="date" id="date"></div>
-
-<div class="alarm-box">
-<h2>🔔 Alarm Set For: 5:00 AM</h2>
-<p>Keep this page OPEN all night. Keep phone charging. Keep volume HIGH.</p>
-<div class="status" id="status">🟢 Alarm is ON - Waiting for 5:00 AM</div>
-<div class="big-alarm" id="bigAlarm">🚨 WAKE UP! WAKE UP! IT'S 5AM! 🚨<br>TIME FOR MICLARA SHOP!</div>
-<br>
-<button class="btn-green" onclick="enableAlarm()">▶️ ENABLE ALARM - CLICK BEFORE SLEEP</button>
-<br>
-<button class="btn-blue" onclick="testAlarm()">🔊 TEST ALARM SOUND</button>
-<br>
-<button class="btn-red" onclick="stopAlarm()">⏹️ I'M AWAKE - STOP ALARM</button>
+<header><h1>OUR <b style="color:var(--blue)">FAMILY</b> - TEMPLATE</h1><div><span id="uEmail" style="font-size:11px;color:var(--grey)"></span><span id="logout" style="color:var(--red);cursor:pointer;margin-left:10px;font-weight:700">Logout</span></div></header>
+<div class="nav"><div class="tab active" data-tab="origin">Origin</div><div class="tab" data-tab="branches">Family Branches</div><div class="tab" data-tab="dash">Dashboard</div><div class="tab emergency" data-tab="emergency">🚨 Emergency</div></div>
+<div id="originSub" class="subNav"><div class="subTab active" data-sub="p1">Partner 1</div><div class="subTab" data-sub="p2">Partner 2</div></div>
+<div id="branchesSub" class="subNav hidden"><div class="subTab active" data-sub="auties">Aunties</div><div class="subTab" data-sub="uncles">Uncles</div></div>
+<div id="auntTabsContainer" class="auntTabs hidden"></div>
+<div id="content"><div class="main" id="mainContent"></div><div class="side" id="sideContent"></div></div>
+<footer>ONE FAMILY • Free Template - Watermark Guide Inside • Professional Family Storage</footer>
+<div id="emergencyOverlay" style="position:fixed;inset:0;background:var(--red);z-index:2000;display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;color:#fff"><div style="width:100px;height:100px;border:5px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px">📞</div><h1 style="margin-top:12px">🚨 EMERGENCY</h1><p id="currentCall" style="font-weight:900;margin:8px">Grouping...</p><button class="btn" style="background:#fff;color:var(--red);padding:14px 22px;margin-top:14px" onclick="muteEmergency()">🔇 MUTE</button></div>
+<div id="loginScreen">
+<div class="loginCard" id="firstBox">
+<div class="gear" id="gear">⚙️</div>
+<h3 style="color:var(--blue);margin-top:22px">Strong Access Admin</h3>
+<p style="font-size:11px;color:var(--grey);margin:6px 0 14px">Admin only - click gear to reveal</p>
+<input type="password" id="firstPass" placeholder="Enter strong key" autocomplete="off" spellcheck="false" style="letter-spacing:3px">
+<button class="btn btn-blue" style="width:100%;margin-top:14px;padding:13px" id="firstBtn">ENTER</button>
 </div>
-
-<div style="background:#fff;color:#00264d;padding:14px;border-radius:14px;max-width:500px;margin:10px auto">
-<p><b>Your Alarm Sound:</b></p>
-<label style="background:#007bff;color:#fff;padding:10px 18px;border-radius:20px;cursor:pointer;display:inline-block;margin:5px">🎵 CHOOSE ALARM MP3 <input type="file" id="audioInput" accept="audio/*" style="display:none"></label>
-<br><small id="fileName">Trying to load advert.mp3 from folder...</small>
+<div class="loginCard hidden" id="setBox"><h3>Set Website Password Once</h3><input type="password" id="newPass" placeholder="e.g., Create website password" autocomplete="off" style="margin-top:14px"><input type="password" id="confPass" placeholder="e.g., Confirm password" autocomplete="off" style="margin-top:10px"><button class="btn btn-blue" style="width:100%;padding:13px;margin-top:14px" id="setBtn">SET PASSWORD</button></div>
+<div class="loginCard hidden" id="emailBox"><h3>Sign In</h3><input type="email" id="emailIn" placeholder="e.g., family@gmail.com" style="margin-top:14px"><input type="password" id="passIn" placeholder="e.g., Website password" style="margin-top:10px"><button class="btn btn-blue" style="width:100%;padding:13px;margin-top:14px" id="emailBtn">SIGN IN</button></div>
 </div>
-
-<audio id="alarmSound" loop>
-<source src="advert.mp3" type="audio/mpeg">
-<source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
-</audio>
-
 <script>
-let alarmOn = false;
-let alarmRinging = false;
-let audio = document.getElementById('alarmSound');
-let statusEl = document.getElementById('status');
-
-// PHOTO - ADDS DIRECTLY LIKE PC ALERT
-document.getElementById('photoInput').addEventListener('change', function(e){
-  let file = e.target.files[0];
-  if(file){
-    let url = URL.createObjectURL(file);
-    document.getElementById('myPhoto').src = url;
-    document.getElementById('photoStatus').textContent = "✅ Photo added: " + file.name;
-    // Save for next time on same phone
-    try{ localStorage.setItem('miclara_photo_name', file.name); }catch(err){}
-  }
+let S=JSON.parse(localStorage.getItem('our_family_final_mike')||'{}');
+if(!S.aunties){
+S={adminSet:false,webPass:'',dashboard:{desc:''},origin:{p1:{name:'',phone:'',dob:''},p2:{name:'',phone:'',dob:''}},aunties:[{name:'',phone:'',dob:'',locked:false,children:[{name:'',phone:'',dob:'',grandchildren:[]}]}],uncles:[{name:'',phone:'',dob:'',locked:false,children:[{name:'',phone:'',dob:'',grandchildren:[]}]}],photos:{},emails:[]};
+for(let i=1;i<4;i++){S.aunties.push({name:'',phone:'',dob:'',locked:false,children:[{name:'',phone:'',dob:'',grandchildren:[]}]});S.uncles.push({name:'',phone:'',dob:'',locked:false,children:[{name:'',phone:'',dob:'',grandchildren:[]}]})}
+}
+function save(){localStorage.setItem('our_family_final_mike',JSON.stringify(S))}
+const loginScreen=document.getElementById('loginScreen'),firstBox=document.getElementById('firstBox'),setBox=document.getElementById('setBox'),emailBox=document.getElementById('emailBox');
+document.getElementById('gear').onclick=()=>{let i=document.getElementById('firstPass');if(i.type==='password'){i.type='text'; i.value='miketechsolutions'; setTimeout(()=>{i.type='password'; i.value='';},2500);}else{i.type='password'; i.value='';}};
+function showScreen(){if(!S.adminSet){firstBox.classList.remove('hidden');setBox.classList.add('hidden');emailBox.classList.add('hidden');}else{firstBox.classList.add('hidden');setBox.classList.add('hidden');emailBox.classList.remove('hidden');}}showScreen();
+document.getElementById('firstBtn').onclick=()=>{if(document.getElementById('firstPass').value==='miketechsolutions'){firstBox.classList.add('hidden');setBox.classList.remove('hidden');}else{alert('Wrong key - click gear ⚙️');}};document.getElementById('setBtn').onclick=()=>{let p=document.getElementById('newPass').value,c=document.getElementById('confPass').value;if(p.length<5) return alert('Short');if(p!==c) return alert('No match');S.webPass=p;S.adminSet=true;save();setBox.classList.add('hidden');emailBox.classList.remove('hidden');};
+document.getElementById('emailBtn').onclick=()=>{let e=document.getElementById('emailIn').value,p=document.getElementById('passIn').value;if(!e.includes('@')) return alert('Email');if(p!==S.webPass) return alert('Wrong');S.emails.push(e);save();loginScreen.style.display='none';document.getElementById('uEmail').innerText=e;render('origin','p1');};
+document.getElementById('logout').onclick=()=>location.reload();
+let curTab='origin',curSub='p1',curAuntIndex=0;
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');
+curTab=t.dataset.tab;
+document.getElementById('originSub').classList.toggle('hidden',curTab!=='origin');
+document.getElementById('branchesSub').classList.toggle('hidden',curTab!=='branches');
+document.getElementById('auntTabsContainer').classList.toggle('hidden',curTab!=='branches');
+curSub=curTab==='origin'?'p1':curTab==='branches'?'auties':'dash';
+if(curTab==='branches') renderAuntTabs();
+render(curTab,curSub);
 });
-
-// AUDIO - ADDS DIRECTLY
-document.getElementById('audioInput').addEventListener('change', function(e){
-  let file = e.target.files[0];
-  if(file){
-    audio.src = URL.createObjectURL(file);
-    document.getElementById('fileName').textContent = "✅ Loaded: " + file.name;
-  }
+document.querySelectorAll('.subTab').forEach(s=>s.onclick=()=>{
+s.parentElement.querySelectorAll('.subTab').forEach(x=>x.classList.remove('active'));s.classList.add('active');
+curSub=s.dataset.sub;curAuntIndex=0;
+if(curTab==='branches') renderAuntTabs();
+render(curTab,curSub);
 });
-
-function enableAlarm(){
-  alarmOn = true;
-  audio.play().then(()=>{ audio.pause(); audio.currentTime=0; statusEl.innerHTML="🟢 ALARM ENABLED! I will wake you at 5:00 AM. Keep this page open, phone charging, volume up."; }).catch(()=>{ statusEl.innerHTML="Click TEST ALARM once to allow sound, then ENABLE again."; });
-  if(navigator.vibrate) navigator.vibrate(200);
+function renderAuntTabs(){
+let cont=document.getElementById('auntTabsContainer');
+let list=curSub==='auties'?S.aunties:S.uncles;
+let html=list.map((a,i)=>`<div class="auntTab ${a.locked?'locked':''} ${i===curAuntIndex?'active':''}" onclick="selectAunt(${i})">${a.locked&&a.name?a.name:`${curSub==='auties'?'Aunt':'Uncle'} ${i+1} - e.g., Enter Name`} ${a.locked?'🔒':''}</div>`).join('');
+html+=`<button class="plusTab" onclick="addTab()">+</button>`;
+cont.innerHTML=html;
 }
-function testAlarm(){
-  audio.play();
-  alarmRinging = true;
-  document.getElementById('bigAlarm').style.display='block';
-  statusEl.innerHTML="🔊 TESTING - This is how loud 5AM will be!";
-  if(navigator.vibrate) navigator.vibrate([500,200,500,200,500]);
+window.selectAunt=(i)=>{curAuntIndex=i;renderAuntTabs();render(curTab,curSub);};
+window.addTab=()=>{
+let list=curSub==='auties'?S.aunties:S.uncles;
+list.push({name:'',phone:'',dob:'',locked:false,children:[{name:'',phone:'',dob:'',grandchildren:[]}]});
+save();curAuntIndex=list.length-1;renderAuntTabs();render(curTab,curSub);
+};
+let emergencyActive=false, allPhones=[], emergencyTimer=null;
+function collectContacts(){
+let groups={origin:[],aunties:[],uncles:[],children:[],grandchildren:[]};
+Object.values(S.origin).forEach(o=>{if(o.phone) groups.origin.push({name:o.name||'Origin Partner',phone:o.phone,group:'Origin'})});
+S.aunties.forEach(a=>{if(a.phone) groups.aunties.push({name:a.name||'Aunt',phone:a.phone,group:'Aunties'}); a.children.forEach(c=>{if(c.phone) groups.children.push({name:c.name||'Child of '+a.name,phone:c.phone,group:'Children'}); c.grandchildren.forEach(g=>{if(g.phone) groups.grandchildren.push({name:g.name||'Grandchild',phone:g.phone,group:'Grandchildren'})})})});
+S.uncles.forEach(a=>{if(a.phone) groups.uncles.push({name:a.name||'Uncle',phone:a.phone,group:'Uncles'}); a.children.forEach(c=>{if(c.phone) groups.children.push({name:c.name||'Child of '+a.name,phone:c.phone,group:'Children'}); c.grandchildren.forEach(g=>{if(g.phone) groups.grandchildren.push({name:g.name||'Grandchild',phone:g.phone,group:'Grandchildren'})})})});
+return groups;
 }
-function stopAlarm(){
-  audio.pause(); audio.currentTime=0;
-  alarmRinging=false;
-  document.getElementById('bigAlarm').style.display='none';
-  statusEl.innerHTML="✅ You are awake! Good morning! Have a blessed day at Miclara shop. Alarm will ring again tomorrow 5AM.";
-  if(navigator.vibrate) navigator.vibrate(0);
+function startEmergency(){
+let groups=collectContacts();
+let all=[...groups.origin,...groups.aunties,...groups.uncles,...groups.children,...groups.grandchildren];
+if(!all.length){alert('Guidance: Add phone contacts first - e.g., 07XX XXX XXX');return;}
+allPhones=all;emergencyActive=true;document.getElementById('emergencyOverlay').style.display='flex';
+let idx=0;
+function autoRingAll(){
+if(!emergencyActive) return;
+if(idx>=allPhones.length){document.getElementById('currentCall').innerText=`All ${allPhones.length} contacts rung!`; return;}
+let c=allPhones[idx];
+document.getElementById('currentCall').innerText=`Ringing ${idx+1}/${allPhones.length}: ${c.name} (${c.group}) - ${c.phone}`;
+window.location.href='tel:'+c.phone;
+idx++;
 }
-
-setInterval(function(){
-  let now = new Date();
-  let h = now.getHours(); let m = now.getMinutes(); let s = now.getSeconds();
-  let hh = (h<10?'0'+h:h), mm = (m<10?'0'+m:m), ss = (s<10?'0'+s:s);
-  document.getElementById('clock').textContent = hh+':'+mm+':'+ss;
-  document.getElementById('date').textContent = now.toDateString();
-  if(alarmOn && !alarmRinging && h===5 && m===0){
-    alarmRinging=true;
-    audio.play().catch(()=>{});
-    document.getElementById('bigAlarm').style.display='block';
-    statusEl.innerHTML="🚨🚨 WAKE UP! IT'S 5AM! WAKE UP! 🚨🚨";
-    if(navigator.vibrate) navigator.vibrate([1000,500,1000,500,1000,500,1000]);
-  }
-},1000);
+autoRingAll();
+emergencyTimer=setInterval(()=>{if(!emergencyActive){clearInterval(emergencyTimer);return;} if(idx<allPhones.length){autoRingAll();}},4000);
+}
+window.muteEmergency=()=>{emergencyActive=false;clearInterval(emergencyTimer);document.getElementById('emergencyOverlay').style.display='none';};
+window.triggerEmergency=startEmergency;
+function render(tab,sub){
+const main=document.getElementById('mainContent'),side=document.getElementById('sideContent');
+if(tab==='emergency'){
+let groups=collectContacts();
+let total=Object.values(groups).flat().length;
+let html=`<div class="card" style="background:var(--red);border:none"><h3 style="color:#fff">🚨 Emergency - Auto Collect Grouped</h3><p style="color:#fff;font-size:11px;margin:6px 0">Guidance: Auto collects all phones filled in site - grouped</p><button class="btn" style="background:#fff;color:var(--red);padding:16px;width:100%;font-weight:900;font-size:14px" onclick="triggerEmergency()">🔴 TAP TO RING ALL AT ONCE (${total} contacts)</button></div>`;
+for(let key of ['origin','aunties','uncles','children','grandchildren']){
+let arr=groups[key]; if(!arr.length) continue;
+html+=`<div class="card"><h4 style="color:var(--blue);font-size:12px;margin-bottom:8px">${key.toUpperCase()} - ${arr.length} - Watermark: Auto grouped</h4>${arr.map(c=>`<div style="display:flex;justify-content:space-between;padding:8px;background:var(--black);border-radius:8px;margin:4px 0"><div><b style="font-size:12px">${c.name}</b><br><small style="color:var(--grey)">${c.phone}</small></div><a href="tel:${c.phone}" style="color:var(--blue);font-weight:900;text-decoration:none">📞</a></div>`).join('')}</div>`;
+}
+if(total===0) html+=`<div class="card"><p style="font-size:12px;color:var(--grey)">Watermark: No contacts yet - Guidance: Fill phones in tabs - e.g., 07XX</p></div>`;
+main.innerHTML=html;
+side.innerHTML=`<div class="card"><h3>Emergency Photo 1</h3><div class="photoArea"><span>Watermark: e.g., Upload emergency photo - readable</span><input type="file" accept="image/*" onchange="up(this,'em1')"><img id="em1"></div></div><div class="card"><h3>Emergency Photo 2</h3><div class="photoArea"><span>Watermark: Second photo</span><input type="file" accept="image/*" onchange="up(this,'em2')"><img id="em2"></div></div>`;loadPhotos();return;
+}
+if(tab==='dash'){
+main.innerHTML=`<div class="card"><h3>Dashboard</h3><p style="font-size:12px;color:var(--grey)">Aunties: ${S.aunties.length} | Uncles: ${S.uncles.length}</p></div><div class="card"><h3>Family Description / Background - Fill Here</h3><p style="font-size:11px;color:var(--grey);margin-bottom:8px">Watermark: e.g., Write family background, history, values, clan, origin story</p><textarea class="textArea" placeholder="e.g., Our family background: We are the [Family Name] family. Origin: [Village]. Clan: [Clan]. Values: Love, Unity. History: Our grandfather... etc." onchange="saveDash(this.value)">${S.dashboard.desc||''}</textarea><button class="btn btn-blue" style="margin-top:10px" onclick="saveDash(document.querySelector('.textArea').value)">💾 Save</button></div>`;
+side.innerHTML=`<div class="card"><h3>Dashboard Photo 1</h3><div class="photoArea"><span>e.g., Family group photo - readable, fits field</span><input type="file" accept="image/*" onchange="up(this,'dash1')"><img id="dash1"></div></div><div class="card"><h3>Dashboard Photo 2</h3><div class="photoArea"><span>e.g., Second photo</span><input type="file" accept="image/*" onchange="up(this,'dash2')"><img id="dash2"></div></div>`;loadPhotos();return;
+}
+if(tab==='origin'){
+let data=S.origin[sub]||{};
+main.innerHTML=`<div class="card"><h3>Origin - Family Photo</h3><div class="photoArea" style="min-height:280px"><span>Watermark: e.g., Upload family origin photo - readable, fits field</span><input type="file" accept="image/*" onchange="up(this,'fam')"><img id="fam"></div></div><div class="card"><h3>${sub==='p1'?'Partner 1':'Partner 2'} - Passport</h3><div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start"><div class="photoArea passport"><span>Watermark: e.g., Passport size</span><input type="file" accept="image/*" onchange="up(this,'pass_${sub}')"><img id="pass_${sub}"></div><div style="flex:1;display:grid;gap:8px"><input placeholder="e.g., Enter Full Name" value="${data.name||''}" onchange="saveOrigin('${sub}','name',this.value)"><input type="date" value="${data.dob||''}" onchange="saveOrigin('${sub}','dob',this.value)"><input type="tel" placeholder="e.g., 07XX XXX XXX" value="${data.phone||''}" onchange="saveOrigin('${sub}','phone',this.value)"></div></div></div>`;
+side.innerHTML=`<div class="card"><h3>Origin Photo 2</h3><div class="photoArea"><span>e.g., Second photo</span><input type="file" accept="image/*" onchange="up(this,'orig2')"><img id="orig2"></div></div>`;loadPhotos();return;
+}
+if(tab==='branches'){
+let list=curSub==='auties'?S.aunties:S.uncles;
+let aunt=list[curAuntIndex]||{name:'',phone:'',dob:'',locked:false,children:[]};
+main.innerHTML=`<div class="card"><h3>${curSub==='auties'?'Aunt':'Uncle'} ${curAuntIndex+1} - Watermark: Fill then Lock</h3>${!aunt.locked?`<div class="inputRow"><input placeholder="e.g., Enter ${curSub==='auties'?'Aunt':'Uncle'} Full Name" value="${aunt.name}" id="auntName"><input type="tel" placeholder="e.g., 07XX XXX XXX" value="${aunt.phone}" id="auntPhone"><input type="date" value="${aunt.dob}" id="auntDob"></div><button class="btn btn-green" style="width:100%;padding:12px;margin-top:8px" onclick="lockAunt()">🔒 Lock This Tab</button>`:`<div style="background:#0f172a;padding:12px;border-radius:10px;border:2px solid var(--green)"><b style="color:var(--green)">${aunt.name||'Unnamed'}</b> - ${aunt.phone||''} - 🔒 <button class="btn btn-red" style="margin-left:8px" onclick="unlockAunt()">Unlock</button></div>`}</div><div class="card"><h3>Children - Watermark: 1 with + to add</h3><p style="font-size:11px;color:var(--grey);margin-bottom:8px">Guidance: First child hidden inside this parent - + Add Child for more</p><div id="childrenList"></div><button class="btn btn-blue" style="width:100%;margin-top:10px;padding:12px" onclick="addChild()">+ Add Child</button></div>`;
+side.innerHTML=`<div class="card"><h3>Family Photo - Readable</h3><div class="photoArea"><span>e.g., Upload photo for this tab - fits field, readable</span><input type="file" accept="image/*" onchange="up(this,'fam_${curSub}_${curAuntIndex}_1')"><img id="fam_${curSub}_${curAuntIndex}_1"></div></div><div class="card"><h3>Photo 2</h3><div class="photoArea"><span>e.g., Second photo</span><input type="file" accept="image/*" onchange="up(this,'fam_${curSub}_${curAuntIndex}_2')"><img id="fam_${curSub}_${curAuntIndex}_2"></div></div>`;renderChildrenList();loadPhotos();
+}
+}
+window.saveOrigin=(sub,f,v)=>{if(!S.origin[sub]) S.origin[sub]={};S.origin[sub][f]=v;save();};
+window.saveDash=(v)=>{S.dashboard.desc=v;save(); alert('Saved!');};
+window.lockAunt=()=>{let list=curSub==='auties'?S.aunties:S.uncles;let n=document.getElementById('auntName').value.trim(),p=document.getElementById('auntPhone').value.trim(),d=document.getElementById('auntDob').value;if(!n) return alert('Enter name');list[curAuntIndex].name=n;list[curAuntIndex].phone=p;list[curAuntIndex].dob=d;list[curAuntIndex].locked=true;save();renderAuntTabs();render(curTab,curSub);};
+window.unlockAunt=()=>{let list=curSub==='auties'?S.aunties:S.uncles;list[curAuntIndex].locked=false;save();renderAuntTabs();render(curTab,curSub);};
+function renderChildrenList(){
+let list=curSub==='auties'?S.aunties:S.uncles;
+let aunt=list[curAuntIndex]; let cont=document.getElementById('childrenList'); if(!cont) return;
+cont.innerHTML=aunt.children.map((c,i)=>`<div class="childCard"><div class="childHead"><span>${i+1}</span><input placeholder="e.g., Child Name ${i+1}" value="${c.name}" onchange="saveChild(${i},'name',this.value)"><input type="date" value="${c.dob}" onchange="saveChild(${i},'dob',this.value)"><input type="tel" placeholder="e.g., Phone" value="${c.phone}" onchange="saveChild(${i},'phone',this.value)"><button class="btn btn-blue" onclick="addGrand(${i})">+ Produce</button></div><div class="grandChildren">${c.grandchildren.map((g,gi)=>`<div style="display:grid;grid-template-columns:18px 1fr 100px 110px 30px;gap:5px;padding:6px;background:#0f172a;border-radius:8px;margin:4px 0"><span>↳</span><input placeholder="e.g., Grandchild" value="${g.name}" onchange="saveGrand(${i},${gi},'name',this.value)"><input type="date" value="${g.dob}" onchange="saveGrand(${i},${gi},'dob',this.value)"><input type="tel" placeholder="Phone" value="${g.phone}" onchange="saveGrand(${i},${gi},'phone',this.value)"><button class="btn btn-red" onclick="delGrand(${i},${gi})">x</button></div>`).join('')||'<span style="font-size:10px;color:var(--grey)">Guidance: + Produce if has children</span>'}</div></div>`).join('');
+}
+window.saveChild=(i,f,v)=>{let list=curSub==='auties'?S.aunties:S.uncles;list[curAuntIndex].children[i][f]=v;save();};
+window.addChild=()=>{let list=curSub==='auties'?S.aunties:S.uncles;list[curAuntIndex].children.push({name:'',phone:'',dob:'',grandchildren:[]});save();renderChildrenList();};
+window.addGrand=(i)=>{let list=curSub==='auties'?S.aunties:S.uncles;list[curAuntIndex].children[i].grandchildren.push({name:'',dob:'',phone:''});save();renderChildrenList();};
+window.saveGrand=(ci,gi,f,v)=>{let list=curSub==='auties'?S.aunties:S.uncles;list[curAuntIndex].children[ci].grandchildren[gi][f]=v;save();};
+window.delGrand=(ci,gi)=>{let list=curSub==='auties'?S.aunties:S.uncles;list[curAuntIndex].children[ci].grandchildren.splice(gi,1);save();renderChildrenList();};
+window.up=(input,id)=>{let file=input.files[0];if(!file) return;let r=new FileReader();r.onload=e=>{S.photos[id]=e.target.result;save();let el=document.getElementById(id); if(el) el.src=e.target.result;};r.readAsDataURL(file);};
+function loadPhotos(){Object.keys(S.photos||{}).forEach(id=>{let el=document.getElementById(id); if(el) el.src=S.photos[id];});}
+render('origin','p1');renderAuntTabs();
 </script>
 </body>
 </html>
